@@ -1,3 +1,4 @@
 :set paste
-:set number
 :set autoindent
+syntax on
+:set tabstop=4
