@@ -1,17 +1,17 @@
 body {
-    background-color: #1d2021;
+    background-color: #151515;
     text-align: center;
 }
 
 h3 {
-    color: #ebdbb2;
+    color: #f2f0ec;
     font-family: 'Terminus', monospace;
 }
 
 h1 {
     font-family: 'Terminus', monospace;
     text-align: center;
-    color: #ebdbb2;
+    color: #f2f0ec;
     font-size: 90;
 }
 
@@ -43,32 +43,32 @@ list {
 }
 
 .google {
-    background-color: #cc241d;
+    background-color:#ff5f63;
 }
 
 .school {
-    background-color: #458588;
+    background-color: #6699cc;
 }
 
 .programming {
-    background-color: #689d6a;
+    background-color: #99cc99;
 }
 
 .frc {
-    background-color: #d65d0e;
+    background-color: #f0b643;
 }
 
 .linux {
-    background-color: #b16286;
+    background-color: #cc99cc;
 }
 
 .links {
     text-align: center;
-    color: #282828;
+    color: #151515;
     font-family: 'Terminus', monospace;
     text-decoration: none;
     font-weight: bold;
-    background-color: #ebdbb2;
+    background-color: #f2f0ec;
     width: 12em;
     padding:2px;
 }

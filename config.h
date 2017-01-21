@@ -1,44 +1,38 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char *fonts[] = {
-	"monospace:size=10"
-    "terminus:size=10"
-};
-static const char dmenufont[]       = "terminus:size=10";
-static const char normbordercolor[] = "#504945";
-static const char normbgcolor[]     = "#1d2021";
-static const char normfgcolor[]     = "#ebdbb2";
-static const char selbordercolor[]  = "#b16286";
-static const char selbgcolor[]      = "#1d2021";
-static const char selfgcolor[]      = "#b16286";
+static const char font[]            = "-*-terminus-medium-r-*-*-13-*-*-*-*-*-*-*";
+static const char normbordercolor[] = "#2d2d2d";
+static const char normbgcolor[]     = "#151515";
+static const char normfgcolor[]     = "#f2f0ec";
+static const char selbordercolor[]  = "#6699cc";
+static const char selbgcolor[]      = "#151515";
+static const char selfgcolor[]      = "#6699cc";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const Bool showbar           = True;     /* False means no bar */
+static const Bool topbar            = True;     /* False means bottom bar */
+
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",       NULL,       NULL,       0,            True,        -1 },
+	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints   = 0;    /* 1 means respect size hints in tiled resizals */
+static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster      = 1;    /* number of clients in master area */
+static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[t] ",      tile },    /* first entry is default */
-	{ "[f] ",      NULL },    /* no layout function means floating behavior */
-	{ "[m] ",      monocle },
+	{ "[t]",      tile },    /* first entry is default */
+	{ "[f]",      NULL },    /* no layout function means floating behavior */
+	{ "[m]",      monocle },
 };
 
 /* key definitions */
@@ -53,8 +47,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
 static Key keys[] = {

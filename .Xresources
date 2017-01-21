@@ -1,38 +1,43 @@
 URxvt.scrollBar:	false
-URxvt.font:			xft:terminus:pixelsize=15
+URxvt.font:			xft:terminus:size=11
 
-*background: #1d2021
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
-! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
-! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+URxvt.perl-ext-common: default,clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-P: perl:clipboard:paste
+#define base00 #2d2d2d
+#define base01 #f2777a
+#define base02 #99cc99
+#define base03 #d2a853
+#define base04 #6699cc
+#define base05 #cc99cc
+#define base06 #66cccc
+#define base07 #d3d0c8
+#define base08 #515151
+#define base09 #ff5f63
+#define base0A #94ea94
+#define base0B #f0b643
+#define base0C #59a2ea
+#define base0D #ea94ea
+#define base0E #59eaea
+#define base0F #f2f0ec
 
+*.foreground:   base07
+*.background:   #151515
+*.cursorColor:  base07
+*.color0:       base00
+*.color1:       base01
+*.color2:       base02
+*.color3:       base03
+*.color4:       base04
+*.color5:       base05
+*.color6:       base06
+*.color7:       base07
+*.color8:       base08
+*.color9:       base09
+*.color10:      base0A
+*.color11:      base0B
+*.color12:      base0C
+*.color13:      base0D
+*.color14:      base0E
+*.color15:      base0F
 
-!                    bg       fg      altbg    hlbg     hlfg
-rofi.color-normal: #282828, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-urgent: #282828, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-active: #282828, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-window: #282828, #458588, #282828
-rofi.bw: 4
-rofi.fuzzy: false
