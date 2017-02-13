@@ -3,16 +3,26 @@ execute pathogen#infect()
 set nocompatible
 filetype off
 
-colorscheme jellybeans
-
+let g:gruvbox_italic=1
+syntax on
+set background=dark 
+colorscheme gruvbox
 filetype plugin indent on
 
-set paste
 set autoindent
 set tabstop=4
 set number
-syntax on
+set expandtab
+set relativenumber
+set nowrap
 
-let g:rainbow_active = 1
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set laststatus=2
 
 

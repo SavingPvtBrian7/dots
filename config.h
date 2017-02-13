@@ -2,17 +2,16 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-13-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#2d2d2d";
-static const char normbgcolor[]     = "#151515";
-static const char normfgcolor[]     = "#f2f0ec";
-static const char selbordercolor[]  = "#6699cc";
-static const char selbgcolor[]      = "#151515";
-static const char selfgcolor[]      = "#6699cc";
+static const char normbordercolor[] = "#504945";
+static const char normbgcolor[]     = "#1d2021";
+static const char normfgcolor[]     = "#ebdbb2";
+static const char selbordercolor[]  = "#b16286";
+static const char selbgcolor[]      = "#1d2021";
+static const char selfgcolor[]      = "#b16286";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
