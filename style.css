@@ -1,5 +1,4 @@
-body {
-    background-color: #1d2021;
+body { background-color: #1d2021;
     text-align: center;
 }
 
@@ -50,16 +49,16 @@ list {
     background-color: #458588;
 }
 
-.programming {
+.programming { 
     background-color: #689d6a;
 }
 
 .frc {
-    background-color: #d65d0e;
+    background-color: #b16286;
 }
 
 .linux {
-    background-color: #b16286;
+    background-color: #d65d0e;
 }
 
 .links {

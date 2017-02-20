@@ -4,7 +4,11 @@ URxvt.font:			xft:terminus:pixelsize=15
 URxvt.perl-ext-common: default,clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-P: perl:clipboard:paste
-*.background: #1d2021
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+*background: #1c1c1c
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828
@@ -29,5 +33,4 @@ URxvt.keysym.Shift-Control-P: perl:clipboard:paste
 *color14: #8ec07c
 ! LightGrey + White
 *color7:  #a89984
-*color15: #ebdbb2
-
+*color14: #ebdbb2
