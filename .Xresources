@@ -8,7 +8,9 @@ URxvt.keysym.Shift-Control-P: perl:clipboard:paste
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
+! hard contrast: *background: #1d2021
 *background: #1c1c1c
+! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828
@@ -33,4 +35,5 @@ URxvt.iso14755_52: false
 *color14: #8ec07c
 ! LightGrey + White
 *color7:  #a89984
-*color14: #ebdbb2
+*color15: #ebdbb2
+
