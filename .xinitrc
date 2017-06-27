@@ -1,10 +1,17 @@
 #!/bin/bash
+# Trackpoint stuff
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+
+# Status bar
 while true; do xsetroot -name "$(date +"%b %F %r" )";sleep 1s;done &
+
+# Load preferences
+feh --bg-scale ~/Downloads/papes/debianstable.png
 xrdb ~/dots/.Xresources
-feh --bg-scale ~/Downloads/debianstable.png
 xset -b
+setxkbmap -option ctrl:swapcaps     # Swap Left Control and Caps Lock
+
 exec dwm

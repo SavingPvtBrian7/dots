@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/brian/.vim/bundle/vim-hybrid/colors'
+let g:netrw_dirhist_2='/home/brian/.vim/bundle/vim-hybrid'
+let g:netrw_dirhist_3='/home/brian/.vim/bundle/vim-hybrid/colors'
+let g:netrw_dirhist_4='/home/brian/Programming/clojure/hello/src'
+let g:netrw_dirhist_5='/home/brian/Programming/clojure/hello'
+let g:netrw_dirhist_6='/home/brian/Programming/clojure/hello/src/hello'
+let g:netrw_dirhist_7='/home/brian/Programming/clojure/hobbit/src'
+let g:netrw_dirhist_8='/home/brian/Programming/clojure/hobbit/src/hobbit'
