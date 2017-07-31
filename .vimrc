@@ -1,6 +1,6 @@
 execute pathogen#infect()
 set nocompatible
-filetype off
+filetype plugin indent on
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -16,7 +16,7 @@ syntax enable
 colors hybrid
 set background=dark
 filetype plugin indent on
-let g:airline_theme='gruvbox'
+let g:airline_theme="gruvbox"
 
 set autoindent
 set tabstop=4
@@ -32,6 +32,9 @@ set splitright
 
 nmap ; :
 
+command Hterm sp | term
+command Vterm vs | term
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -39,9 +42,6 @@ nnoremap <C-H> <C-W><C-H>
 
 tnoremap kj  <C-\><C-n>
 inoremap kj <Esc>
-
-command Vterm vs | term
-command Hterm sp | term
 
 function! WritingMode()
     setlocal formatoptions=1

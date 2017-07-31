@@ -8,7 +8,7 @@ URxvt.keysym.Shift-Control-P: perl:clipboard:paste
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-!! Gruvbox
+! ! Gruvbox
 ! *background: #1d2021
 ! *foreground: #ebdbb2
 ! ! Black + DarkGrey
@@ -29,7 +29,7 @@ URxvt.iso14755_52: false
 ! ! DarkMagenta + Magenta
 ! *color5:  #b16286
 ! *color13: #d3869b
-! DarkCyan + Cyan
+! ! DarkCyan + Cyan
 ! *color6:  #689d6a
 ! *color14: #8ec07c
 ! ! LightGrey + White
@@ -64,3 +64,39 @@ URxvt.iso14755_52: false
 *color7: #6C7A80
 *color15: #C5C8C6
 
+! ! special
+! *.foreground:   #ebf0f8
+! *.background:   #2a303a
+! *.cursorColor:  #ebf0f8
+! 
+! ! black
+! *.color0:       #333f52
+! *.color8:       #e376e8
+! 
+! ! red
+! *.color1:       #ebf0f8
+! *.color9:       #fa75a2
+! 
+! ! green
+! *.color2:       #82c5ff
+! *.color10:      #82c5ff
+! 
+! ! yellow
+! *.color3:       #80dbc2
+! *.color11:      #82c5ff
+! 
+! ! blue
+! *.color4:       #ebf0f8
+! *.color12:      #e98bee
+! 
+! ! magenta
+! *.color5:       #ebf0f8
+! *.color13:      #53e59c
+! 
+! ! cyan
+! *.color6:       #72b4ea
+! *.color14:      #87ec9b
+! 
+! ! white
+! *.color7:       #ebf0f8
+! *.color15:      #eb76d9
