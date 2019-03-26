@@ -2,7 +2,6 @@
 " Basically just delek with a few things changed
 
 hi clear
-
 let g:colors_name = "custom"
 
 " Normal should come first
@@ -20,8 +19,8 @@ hi ErrorMsg   ctermfg=White	   ctermbg=DarkRed  guibg=Red	    guifg=White
 hi FoldColumn ctermfg=DarkBlue	   ctermbg=Grey     guibg=Grey	    guifg=DarkBlue
 hi Folded     ctermbg=Grey	   ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
 hi IncSearch  cterm=reverse	   gui=reverse
-hi LineNr     ctermfg=Magenta	   guifg=Magenta
-hi CursorLineNr     ctermfg=Blue	   guifg=Blue
+hi LineNr     ctermfg=Black	   guifg=Magenta
+hi CursorLineNr     ctermfg=Magenta	   guifg=Blue
 hi ModeMsg    cterm=bold	   gui=bold
 hi MoreMsg    ctermfg=DarkGreen    gui=bold guifg=SeaGreen
 hi NonText    ctermfg=Blue	   gui=bold guifg=gray guibg=white
@@ -34,14 +33,15 @@ else
     hi Search     ctermfg=Black	   ctermbg=Yellow guibg=Yellow guifg=Black
 endif
 hi SpecialKey ctermfg=DarkBlue	   guifg=Blue
-hi StatusLine cterm=bold	   ctermbg=blue ctermfg=yellow guibg=gold guifg=blue
-hi StatusLineNC	cterm=bold	   ctermbg=blue ctermfg=black  guibg=gold guifg=blue
+hi StatusLine cterm=bold	   ctermbg=black ctermfg=yellow guibg=gold guifg=blue
+hi StatusLineNC	cterm=bold	   ctermbg=black ctermfg=white  guibg=gold guifg=blue
 hi Title      ctermfg=DarkMagenta  gui=bold guifg=Magenta
-hi VertSplit  ctermbg=black     ctermfg=black gui=reverse
+hi VertSplit  ctermbg=DarkGray  ctermfg=black gui=bold
 hi Visual     ctermbg=NONE	   cterm=reverse gui=reverse guifg=Grey guibg=fg
 hi VisualNOS  cterm=underline,bold gui=underline,bold
 hi WarningMsg ctermfg=DarkRed	   guifg=Red
 hi WildMenu   ctermfg=Black	   ctermbg=Yellow    guibg=Yellow guifg=Black
+hi MatchParen ctermbg=Magenta   guibg=Magenta
 
 " syntax highlighting
 hi Comment    cterm=NONE ctermfg=DarkRed     gui=NONE guifg=red2

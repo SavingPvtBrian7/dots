@@ -87,7 +87,7 @@ linum-releative will show the real line number at current line."
   :type 'integer
   :group 'linum-relative)
 
-(defcustom linum-relative-format "%3s"
+(defcustom linum-relative-format " %3s "
   "Format for each line. Good for adding spaces/paddings like so: \" %3s \""
   :type 'string
   :group 'linum-relative)

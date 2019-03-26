@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/brian/canva/testing'
-let g:netrw_dirhist_2='/home/brian/canva/output'
-let g:netrw_dirhist_3='/home/brian/canva/final'
-let g:netrw_dirhist_4='/home/brian/Programming/python'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/brian/.vim'
+let g:netrw_dirhist_2='/home/brian/dots/.vim/bundle/vim-airline'
+let g:netrw_dirhist_3='/home/brian/dots/.vim/bundle/vim-airline/plugin'
+let g:netrw_dirhist_4='/home/brian/dots/.vim/bundle/vim-airline/autoload/airline/themes'
+let g:netrw_dirhist_5='/home/brian/dots/.vim/bundle/vim-airline-themes/doc'
+let g:netrw_dirhist_6='/home/brian/.vim'
