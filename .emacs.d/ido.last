@@ -1,0 +1,38 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/brian/Programming/clojure/hello/src/" . "hello/")
+ ("/home/brian/Programming/clojure/" . "hello/")
+ ("/home/brian/Programming/" . "clojure/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/brian/Programming/clojure/hello/src/hello/"
+ "/home/brian/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "core.clj"
+ ".emacs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/brian/Programming/clojure/hello/src/hello/" (22978 9664 343926 950000) "core.clj~" "./" "../" "core.clj")
+
+ ("/home/brian/Programming/clojure/hello/src/" (22958 3756 488846 435000) "./" "hello/" "../")
+
+ ("/home/brian/Programming/clojure/hello/" (22978 9987 331364 604000) "target/" "./" "LICENSE" "../" ".gitignore" "src/" "project.clj" "doc/" "CHANGELOG.md" "README.md" "resources/" "test/" ".hgignore")
+
+ ("/home/brian/Programming/clojure/" (22958 3756 484846 394000) "hobbit/" "./" "hello/" "../" "euler/" "sicp/")
+
+ ("/home/brian/Programming/" (22959 26542 678976 788000) "./" "python/" "../" "clojure/" "java/" "lisp/" "c/")
+
+ ("/home/brian/" (22978 11193 888932 634000) "School/" ".xfce4-session.verbose-log.last" ".zcompdump" ".bar.sh~" ".p2/" ".irssi/" ".stumpwmrc" ".ssh/" ".swn" ".lesshst" ".eclipse/" ".i3/" ".gconf/" "Music/" "./" ".dmrc" ".lyrics/" ".mozilla/" "Robotics/" ".bluej/" "Programming/" ".w3m/" ".node_repl_history" "eclipse/" ".muttrc" ".sbcl_history" ".pylint.d/" ".bash_aliases" ".swt/" ".rustup/" ".xsessionrc" "canva/" "dwm-6.0/" ".emacs" ".lumo_history" ".recently-used" ".slime-history.eld" ".macromedia/" "quicklisp/" "Desktop/" ".xfce4-session.verbose-log" ".bash_history" ".npm/" ".gnome2_private/" ".swm" ".java/" "../" ".swo" "Mail/" ".bashrc" ".base16_theme" ".moonchild productions/" ".clojure_history" ".Xresources" ".audacity-data/" ".cpan/" ".gnome2/" "src/" ".fehbg" ".ICEauthority" "workspace/" ".tooling/" "games/" ".authinfo" ".zshrc.zni" ".pip/" ".cache/" ".xinitrc" ".Vernier/" ".viminfo" ".lastpass/" ".xsession-errors.old" ".emacs~" ".config/" ".vim/" ".bash_logout" ".gstreamer-0.10/" "github/" ".lock.png" ".gnus.el" ".Xauthority" "facebook/" ".dbus/" ".mutt/" ".local/" ".sbclrc" ".urxvt/" ".colortest" ".cargo/" ".profile" ".vimperator/" ".adobe/" "Downloads/" "Templates/" ".emacs.d/" ".ghc/" ".vimrc_background" ".fonts/" ".git-credential-cache/" ".lein/" "workNotes.txt" "recipe/" ".themes/" ".gnus.el~" ".gimp-2.8/" ".xsession-errors" "dots/" ".zshrc" ".gtkrc-2.0" ".vimrc" ".weechat/" ".hplip/" ".authinfo~" ".newsrc-dribble" ".pki/" "News/" ".gtk-bookmarks" ".gitconfig" ".multirust/" "stumpwm/" ".python_history" ".thumbnails/" ".bar.sh" "wpilib/" ".histfile" ".gnome/" ".ncmpcpp/" ".parallel/" ".gnupg/" ".icons/" "bin/" ".atom/" ".racket/" "node_modules/" ".java_history" ".dmenu_cache" ".m2/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

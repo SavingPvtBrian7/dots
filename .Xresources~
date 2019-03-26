@@ -1,0 +1,102 @@
+URxvt.scrollBar:false
+URxvt*font:xft:terminus:pixelsize=14
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+XTerm.vt100.faceName:book:size=12
+
+! Gruvbox
+*background: #000000
+*foreground: #000000
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+
+! !! jellybeans
+! *foreground:    #c5c5c5
+! *background:    #121212
+! *cursorColor:   #c5c5c5
+! !black
+! *color0:#1a1a1a
+! *color8:#404040
+! !red
+! *color1:#d75f5f
+! *color9:#ea8484
+! !green
+! *color2:#87af5f
+! *color10:#c7f09f
+! !yellow
+! *color3:#ffaf5f
+! *color11:#ffcc9a
+! !blue
+! *color4:#87afd7
+! *color12:#a5caef
+! !magenta
+! *color5:#8787af
+! *color13:#a6a6de
+! !cyan
+! *color6:#5f8787
+! *color14:#69b2b2
+! !white
+! *color7:#808080
+! *color15:#d7d7d7
+
+rofi.font: xos4 terminus 10
+rofi.color-enabled: true
+rofi.color-window: #080808, #582fa6, #582fa6
+rofi.color-normal: #080808, #94aef2, #080808, #582fa6, #94aef2
+rofi.color-active: #080808, #94aef2, #080808, #0e9999, #94aef2
+rofi.color-urgent: #080808, #94aef2, #080808, #b92a6a, #94aef2
+
+! UnderTheSea
+! special
+! *.foreground:   #94aef2
+! *.background:   #080808
+! *.cursorColor:  #94aef2
+! ! black
+! *.color0:       #202020
+! *.color8:       #202020
+! ! red
+! *.color1:       #b92a6a
+! *.color9:       #da0c68
+! ! green
+! *.color2:       #0e9999
+! *.color10:      #19c2c2
+! ! yellow
+! *.color3:       #3b3bab
+! *.color11:      #5959e7
+! ! blue
+! *.color4:       #105bad
+! *.color12:      #227cdf
+! ! magenta
+! *.color5:       #582fa6
+! *.color13:      #6737c2
+! ! cyan
+! *.color6:       #266da2
+! *.color14:      #6096bf
+! ! white
+! *.color7:       #899ca1
+! *.color15:      #c0c0c0
+

@@ -1,0 +1,58 @@
+nwr
+ls
+clear
+cd
+ls
+whoami
+nwr
+sudo systemctl restart connman
+whoami
+clear
+ls
+ps
+ps -eo 
+ps -eo pcpu
+`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' | sed -n '1h;$!H;$g;s/\n/ +/gp'`
+`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' | sed -n '1h;$!H;$g;s/\n/ +/gp'`
+`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' | sed -n '1h;$!H;$g;s/\n/ +/gp'`
+`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' |sed -n '1h;$!H;$g;s/\n/ +/gp'`
+`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' |sed -n '1h;$!H;$g;s/\n/ +/gp'`'1h;$!H;$g;s/\n/ +/gp'`
+mpstat
+mpstat
+neofetch
+mpstat
+mpstat
+top -bn 2
+top -bn 2 | grep -F '%Cpu'
+htop
+clear
+top -bn 2 | grep -F '%Cpu' | tail -n 4 | gawk '{print $2 $3}' | tr -s '\n\:\,[:alpha:]' ' '
+sudo apt install gawk
+top -bn 2 | grep -F '%Cpu' | tail -n 4 | gawk '{print $2 $3}' | tr -s '\n\:\,[:alpha:]' ' '
+top -bn 2 | grep -F '%Cpu' | tail -n 4 | gawk '{print $2 $3}' | tr -s '\n\:\,[:alpha:]' ' '
+iex
+clear
+echo $SHELL
+clear
+ls
+ls
+mv elixir.exs elixir/elixir.exs
+mkdir elixir.exs 
+mkdir elixir
+mv elixir.exs elixir/elixir.exs
+clear
+cd elixir/
+ls
+elixir elixir.exs 
+iex
+elixir elixir.exs 
+iex
+ls
+clear
+cd programming/lua/
+ls
+lua hello.lua 
+lua5.3 hello.lua 
+lua5.3 hello.lua 
+lua5.3 hello.lua 
+lua5.3 hello.lua 

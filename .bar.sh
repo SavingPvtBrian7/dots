@@ -1,0 +1,86 @@
+#!/bin/bash
+#
+# z3bra - (c) wtfpl 2014
+# Fetch infos on your computer, and print them to stdout every second.
+
+clock() {
+    (date +"%a %m-%d-%y | %r" )
+}
+
+battery() {
+    acpi | sed 's/Battery 0: //g ;
+                s/isc//g ;
+                s/harging//g ;
+                s/remaining//g ;
+                s/until charged//g ;
+                s/,//g ;
+                s/Full//g ;
+                s/100%/F/g ;
+                s/Unknown*/F/g ;
+                s/*d at zero rate - will never fully dharge.//g
+                s/*c at zero rate - will never fully dharge.//g'
+}
+
+volume() {
+    amixer get Master | sed -n 'N;s/^.*\[\([0-9]\+%\).*$/\1/p'
+}
+
+cpuload() {
+    LINE=`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' |sed -n '1h;$!H;$g;s/\n/ +/gp'`
+    bc <<< $LINE
+}
+
+memused() {
+    total=`free | awk 'total = FNR == 2 {print $2}'`
+    used=`free | awk 'total = FNR == 2 {print $3}'`
+    result=100*$used/$total
+    bc <<< $result
+}
+
+network() {
+    read lo int1 int2 <<< `ip link | sed -n 's/^[0-9]: \(.*\):.*$/\1/p'`
+    if iwconfig $int1 >/dev/null 2>&1; then
+        wifi=$int1
+        eth0=$int2
+    else
+        wifi=$int2
+        eth0=$int1
+    fi
+    ip link show $eth0 | grep 'state UP' >/dev/null && int=$eth0 ||int=$wifi
+
+    #int=eth0
+
+    ping -c 1 8.8.8.8 >/dev/null 2>&1 && 
+        echo "$int U" || echo "$int D"
+}
+
+groups() {
+    cur=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
+    tot=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
+
+    for w in `seq 0 $((cur - 1))`; do line="${line}="; done
+    line="${line}|"
+    for w in `seq $((cur + 2)) $tot`; do line="${line}="; done
+    echo $line
+}
+
+nowplaying() {
+    cur=`mpc current`
+    # this line allow to choose whether the output will scroll or not
+    test "$1" = "scroll" && PARSER='skroll -n20 -d0.5 -r' || PARSER='cat'
+    test -n "$cur" && $PARSER <<< $cur || echo "- stopped -"
+}
+
+# This loop will fill a buffer with our infos, and output it to stdout.
+while :; do
+    buf=""
+    buf="${buf} VOL: $(volume) | "
+    buf="${buf} RAM: $(memused)% | "
+    buf="${buf} CPU: $(cpuload)% | "
+    buf="${buf} NET: $(network) | "
+    buf="${buf} BAT: $(battery) | "
+    buf="${buf} $(clock)"
+    echo $buf
+    # use `nowplaying scroll` to get a scrolling output!
+    sleep 1 # The HUD will be updated every second
+done
