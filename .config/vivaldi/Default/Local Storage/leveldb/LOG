@@ -1,0 +1,6 @@
+2019/12/04-23:30:55.640 2aa Reusing MANIFEST leveldb/MANIFEST-000001
+2019/12/04-23:30:55.641 2aa Recovering log #820
+2019/12/04-23:30:55.641 2aa Reusing old log leveldb/000820.log 
+2019/12/05-14:22:26.685 45e Level-0 table #824: started
+2019/12/05-14:22:26.688 45e Level-0 table #824: 15214 bytes OK
+2019/12/05-14:22:26.690 45e Delete type=0 #820

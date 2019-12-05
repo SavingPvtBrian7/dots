@@ -1,0 +1,5 @@
+[Default Applications]
+text/x-arduino=arduino-arduinoide.desktop
+
+[Added Associations]
+application/pdf=firefox.desktop;

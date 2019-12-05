@@ -4,10 +4,11 @@
 (setq url-cookie-storage
  'nil)
 (setq url-cookie-secure-storage
- '(("reddit.com"
-  [url-cookie "loid" "000000000008uwxzv9.2.1501445959979.Z0FBQUFBQlpmajlIQnM1SVRpVWRLdGwzT01Ea1V3VFdQbWt6ZDl4dTNLRlEyd2pwd0JGOXhoaUNyWGliVnRHV2F0SFdIVXlxXzh4andxUS1NMkxvcmlWdjUxd1BGdGRZSkdaaDBsS1NPcGtRZ2lDWEZ5VHNkanRUV2JtckdYZnpVS0cwQ1pBZm1WaDQ" "30-Jul-2019 20:19:19.00 GMT" "/" "reddit.com" t]
-  [url-cookie "Max-Age" "7199" "30-Jul-2017 22:19:20.00 GMT" "/" "reddit.com" t]
-  [url-cookie "session_tracker" "FQVile0meucUKZTTq1.0.1501445960096.Z0FBQUFBQlpmajlJcHdROU8zMU5FT0F0MXRHUGgxbG5RdGk5R1F3VVdsTmF3RGg4TWRWZW5URDU0LU8zNlZrb2ZHZG5MUEpPeUNlbnZCNDJwNjAxWWNvNWtzSkZ1SzZRd3FsT3VWcmhYUWVzSGVveklYckpwN2pkS0JFMGxJdXcyNlZZRWRyeXlQRjc" "30-Jul-2017 22:19:20.00 GMT" "/" "reddit.com" t]))
+ '((".reddit.com"
+  [url-cookie "loid" "0000000000519dj9gj.2.1573967423350.Z0FBQUFBQmQwTllfZml2TEd2cEtBZFVPU3pNdEs1aWd4R3R6QXZ0bHlram1IeFZ6X01CdU5zbkVGMTM5Ui1MMjhPOU90Qlludl94WWFBSjZFTURnRWM2TVU1OVJNa3ZHQUcydGl6Wk9rM3FZLW9JSkZ2ODZiMmZ5UENhN0JnRzJkNHpyZU5xR3k1OEY" "Wed, 17 Nov 2021 05:10:23 GMT" "/" ".reddit.com" t]
+  [url-cookie "d2_token" "3.c4f5681ed43be37d22bd99f91c10de762d8aa5da3f9146aca9fadc13a2f3605a.eyJhY2Nlc3NUb2tlbiI6Ii1ZbmVvcXM4SVp1Z1U1QXBWVjY5andrU05NVU0iLCJleHBpcmVzIjoiMjAxOS0xMS0xN1QwNjoxMDoyMy4wMDBaIiwibG9nZ2VkT3V0Ijp0cnVlLCJzY29wZXMiOlsiKiIsImVtYWlsIl19" "Wed, 17 Nov 2021 05:10:23 GMT" "/" ".reddit.com" t])
+ ("reddit.com"
+  [url-cookie "edgebucket" "Q8qcqsKvmpCz0ya5kg" "Tue Nov 16 05:10:23 2021 GMT" "/" "reddit.com" t]))
 )
 
 ;; Local Variables:

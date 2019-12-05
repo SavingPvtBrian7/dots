@@ -1,0 +1,24 @@
+
+99.lisp,550
+(defun my-last 1,0
+(defun my-but-last 6,93
+(defun element-at 11,193
+(defun my-length 16,304
+(defun my-reverse 23,421
+(defun palindrome? 30,559
+(defun flatten 36,702
+(defun my-flatten 42,827
+(defun compress 52,1051
+(defun pack 61,1286
+(defun encode 74,1679
+(defun encode-direct 77,1773
+(defun simplify-pair 90,2192
+(defun encode-simplify 95,2275
+(defun dupli 98,2354
+(defun repli 106,2538
+(defun drop 115,2779
+(defun split 124,3008
+(defun slice 132,3241
+(defun rotate 139,3492
+(defun remove-at 145,3663
+(defun insert-at 153,3920

@@ -1,0 +1,81 @@
+00:00:00.004499 main     VirtualBox XPCOM Server 6.0.14 r132055 linux.amd64 (Oct 16 2019 06:57:26) release log
+00:00:00.004506 main     Log opened 2019-10-27T01:30:17.000193000Z
+00:00:00.004507 main     Build Type: release
+00:00:00.004513 main     OS Product: Linux
+00:00:00.004516 main     OS Release: 5.3.7-arch1-1-ARCH
+00:00:00.004518 main     OS Version: #1 SMP PREEMPT Fri Oct 18 00:17:03 UTC 2019
+00:00:00.004567 main     DMI Product Name: Inspiron 13-7353
+00:00:00.004593 main     DMI Product Version: 
+00:00:00.004670 main     Host RAM: 7847MB (7.6GB) total, 7569MB (7.3GB) available
+00:00:00.004677 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.004678 main     Process ID: 574
+00:00:00.004679 main     Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.007951 main     IPC socket path: /tmp/.vbox-brian-ipc/ipcd
+00:00:00.131164 nspr-2   VirtualBox: object creation starts
+00:00:00.131334 nspr-2   Home directory: '/home/brian/.config/VirtualBox'
+00:00:00.133301 nspr-2   Loading settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:00.141045 nspr-2   Successfully initialised host USB using sysfs
+00:00:00.151582 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:00:00.152972 nspr-2   NAT: resolv.conf: nameserver 75.75.75.75
+00:00:00.153001 nspr-2   NAT: resolv.conf: nameserver 75.75.76.76
+00:00:00.153013 nspr-2   NAT: resolv.conf: nameserver 2001:558:feed::1
+00:00:00.153023 nspr-2   NAT: resolv.conf: too many nameserver lines, ignoring 2001:558:feed::2
+00:00:00.153047 nspr-2   HostDnsMonitor::updateInfo
+00:00:00.153078 nspr-2   HostDnsMonitor: old information
+00:00:00.153085 nspr-2     no server entries
+00:00:00.153092 nspr-2     no domain set
+00:00:00.153098 nspr-2     no search string entries
+00:00:00.153105 nspr-2   HostDnsMonitor: new information
+00:00:00.153111 nspr-2     server 1: 75.75.75.75
+00:00:00.153119 nspr-2     server 2: 75.75.76.76
+00:00:00.153126 nspr-2     server 3: 2001:558:feed::1
+00:00:00.153133 nspr-2     domain: hsd1.fl.comcast.net
+00:00:00.153139 nspr-2     search string 1: hsd1.fl.comcast.net
+00:00:00.170729 nspr-2   VD: VDInit finished with VINF_SUCCESS
+00:00:00.172566 nspr-2   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d55176e5-6730-4e9e-fc1f-a59b1f44f78f} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
+00:00:00.183549 nspr-2   Loading settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:00:00.189382 nspr-2   OCI: Local config file '/home/brian/.config/VirtualBox/oci_config' does not exist
+00:00:00.189434 nspr-2   OCI: Original config file '/home/brian/.oci/config' does not exist
+00:00:00.189443 nspr-2   OCI: Reading profiles finished with status NS_OK
+00:00:00.189460 nspr-2   ExtPack: Created cloud provider 'OCI' (hrc=NS_OK)
+00:00:00.189514 nspr-2   VirtualBox: object created
+00:00:01.292718 nspr-3   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:04.699030 nspr-2   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:10.003933 nspr-6   Load [/usr/lib/virtualbox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack/linux.amd64/VBoxHostWebcam.so] vrc=VINF_SUCCESS
+00:00:20.617580 nspr-3   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:01:14.727765 USBPROXY USBProxyBackendLinux: Device 1004:631c (sysfs:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1//device:/dev/vboxusb/001/004) isn't accessible. giving udev a few seconds to fix this...
+00:02:42.958137 nspr-8   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:02:42.963036 nspr-6   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:03:05.437756 nspr-8   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:03:05.442005 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:03:56.888191 nspr-2   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:03:56.897800 nspr-5   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:03:56.950068 nspr-2   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:03:56.963606 nspr-3   Saving settings file "/home/brian/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:05:15.966445 nspr-7   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:05:20.367212 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:05:20.372075 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:05:38.313280 USBPROXY USBProxyBackendLinux: Device 1004:631c (sysfs:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-3//device:/dev/vboxusb/001/005) isn't accessible. giving udev a few seconds to fix this...
+00:05:46.088684 nspr-3   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:05:48.435407 nspr-8   Load [/usr/lib/virtualbox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack/linux.amd64/VBoxHostWebcam.so] vrc=VINF_SUCCESS
+00:05:52.635780 nspr-8   ERROR [COM]: aRC=VBOX_E_IPRT_ERROR (0x80bb0005) aIID={5047460a-265d-4538-b23e-ddba5fb84976} aComponent={SessionMachine} aText={Saved screenshot data is not available (VERR_NOT_SUPPORTED)}, preserve=false aResultDetail=-37
+00:05:52.642722 nspr-8   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:08:17.805047 nspr-7   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:08:18.191716 nspr-6   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:35:19.924122 MainPower Host suspending: Paused 0 VMs
+00:35:23.090978 MainPower Host resumed: Resumed 0 VMs
+00:35:33.159962 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:35:33.164533 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:35:49.426172 nspr-5   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:35:49.430620 nspr-5   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:36:03.193157 nspr-8   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:36:03.197480 nspr-8   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:38:48.357289 USBPROXY USBProxyBackendLinux: Device 05ac:1281 (sysfs:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-3//device:/dev/vboxusb/001/006) isn't accessible. giving udev a few seconds to fix this...
+00:38:58.741434 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:38:58.746412 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:39:03.894634 nspr-6   Saving settings file "/home/brian/VirtualBox VMs/cdma/cdma.vbox" with version "1.15-linux"
+00:39:05.889137 nspr-5   Load [/usr/lib/virtualbox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack/linux.amd64/VBoxHostWebcam.so] vrc=VINF_SUCCESS
+00:39:08.266000 nspr-8   ERROR [COM]: aRC=VBOX_E_IPRT_ERROR (0x80bb0005) aIID={5047460a-265d-4538-b23e-ddba5fb84976} aComponent={SessionMachine} aText={Saved screenshot data is not available (VERR_NOT_SUPPORTED)}, preserve=false aResultDetail=-37
+00:39:08.283343 nspr-7   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:47:19.035854 MainPower Host suspending: Paused 1 VMs
+00:47:22.237618 MainPower Host resumed: Resumed 1 VMs

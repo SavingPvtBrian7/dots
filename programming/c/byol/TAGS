@@ -1,0 +1,795 @@
+
+makefile,25
+lispy: lispy.clispy1,0
+
+lispy.c,2339
+static char buffer[2048];buffer9,114
+char* readline(char* prompt) { readline11,141
+void add_history(char* unused) {}add_history20,337
+#define LASSERT(LASSERT27,439
+typedef struct lval {lval30,532
+  int type;type31,554
+  long num;num32,566
+  char* err;err33,578
+  char* sym;sym34,591
+  int count;count35,604
+  struct lval** cell;cell36,617
+} lval;lval37,639
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;__anon7a9f5e47010339,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;LVAL_NUM39,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;LVAL_ERR39,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;LVAL_SYM39,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;LVAL_SEXPR39,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;LVAL_QEXPR39,648
+enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_SEXPR, LVAL_QEXPR } lval_types;lval_types39,648
+lval* lval_num(long x) {lval_num41,723
+lval* lval_err(char* m) { lval_err48,833
+lval* lval_sym(char* s) {lval_sym56,986
+lval* lval_sexpr(void) { lval_sexpr64,1138
+lval* lval_qexpr(void) {lval_qexpr72,1271
+void lval_del(lval* v) {lval_del80,1403
+lval* lval_read_num(mpc_ast_t* t) {lval_read_num97,1729
+lval* lval_add(lval* v, lval* x) {lval_add104,1896
+lval* lval_read(mpc_ast_t* t) {lval_read111,2043
+void lval_expr_print(lval* v, char open, char close) {lval_expr_print134,2855
+void lval_print(lval* v) {lval_print146,3075
+void lval_println(lval* v) { lval_print(v); putchar('\n'); }lval_println156,3404
+lval* lval_pop(lval* v, int i) {lval_pop158,3466
+lval* lval_take(lval* v, int i) {lval_take169,3684
+lval* lval_join(lval* x, lval* y) {lval_join175,3776
+lval* builtin_head(lval* a) {builtin_head186,3932
+lval* builtin_tail(lval* a) {builtin_tail199,4297
+lval* builtin_list(lval*a ) {builtin_list212,4628
+lval* builtin_eval(lval* a) {builtin_eval217,4697
+lval* builtin_join(lval* a) {builtin_join226,4976
+lval* builtin_op(lval* a, char* op) {builtin_op242,5268
+lval* builtin(lval* a, char* func) {builtin284,6198
+lval* lval_eval_sexpr(lval* v) {lval_eval_sexpr295,6659
+lval* lval_eval(lval* v) {lval_eval319,7203
+int main(int argc, char** argv) {main325,7306
+
+mpc/package.json,747
+  "name": "mpc",name2,2
+  "version": "0.9.8",version3,19
+  "repo": "orangeduck/mpc",repo4,41
+  "description": "A Parser Combinator library for C",description5,69
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],06,123
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],16,123
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],26,123
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],36,123
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],46,123
+  "keywords": ["parser", "combinator", "library", "c", "mpc"],keywords6,123
+  "license": "BSD",license7,186
+  "src": ["mpc.c", "mpc.h"]08,206
+  "src": ["mpc.c", "mpc.h"]18,206
+  "src": ["mpc.c", "mpc.h"]src8,206
+
+mpc/tests/ptest.c,2626
+enum {__anond6a10bf7010311,133
+  MAX_NAME = 512MAX_NAME12,140
+enum {__anond6a10bf7020315,161
+  MAX_ERROR = 2048MAX_ERROR16,168
+enum {__anond6a10bf7030319,191
+  MAX_TESTS = 2048MAX_TESTS20,198
+static int test_passing = 0;test_passing23,221
+static int suite_passing = 0;suite_passing24,250
+enum {__anond6a10bf7040328,295
+  BLACK   = 0,BLACK29,302
+  BLUE    = 1,BLUE30,317
+  GREEN   = 2,GREEN31,332
+  AQUA    = 3,AQUA32,347
+  RED     = 4,RED33,362
+  PURPLE  = 5,PURPLE34,377
+  YELLOW  = 6,YELLOW35,392
+  WHITE   = 7,WHITE36,407
+  GRAY    = 8,GRAY37,422
+  LIGHT_BLUE   = 9,LIGHT_BLUE39,440
+  LIGHT_GREEN  = 10,LIGHT_GREEN40,460
+  LIGHT_AQUA   = 11,LIGHT_AQUA41,481
+  LIGHT_RED    = 12,LIGHT_RED42,502
+  LIGHT_PURPLE = 13,LIGHT_PURPLE43,523
+  LIGHT_YELLOW = 14,LIGHT_YELLOW44,544
+  LIGHT_WHITE  = 15,LIGHT_WHITE45,565
+  DEFAULT      = 16DEFAULT47,589
+static WORD defaults;defaults54,650
+static int defaults_loaded = 0;defaults_loaded55,672
+static void pt_color(int color) {pt_color57,705
+static const char* colors[] = {colors73,1047
+static void pt_color(int color) {  pt_color93,1312
+static int num_asserts = 0;num_asserts101,1405
+static int num_assert_passes = 0;num_assert_passes102,1433
+static int num_assert_fails  = 0;num_assert_fails103,1467
+static char assert_err[MAX_ERROR];assert_err105,1502
+static char assert_err_buff[MAX_ERROR];assert_err_buff106,1537
+static int assert_err_num = 0;assert_err_num107,1577
+void pt_assert_run(int result, const char* expr, const char* file, int line) {pt_assert_run109,1609
+static void ptest_signal(int sig) {ptest_signal127,2021
+static void pt_title_case(char* output, const char* input) {pt_title_case159,2701
+typedef struct {__anond6a10bf70508186,3151
+  void (*func)(void);func187,3168
+  char name[MAX_NAME];name188,3190
+  char suite[MAX_NAME];suite189,3213
+} test_t;test_t190,3237
+static test_t tests[MAX_TESTS];tests192,3248
+static int num_tests = 0;num_tests194,3281
+static int num_tests_passes = 0;num_tests_passes195,3307
+static int num_tests_fails  = 0;num_tests_fails196,3340
+void pt_add_test(void (*func)(void), const char* name, const char* suite) {pt_add_test198,3374
+static int num_suites = 0;num_suites227,4043
+static int num_suites_passes = 0;num_suites_passes228,4070
+static int num_suites_fails  = 0;num_suites_fails229,4104
+void pt_add_suite(void (*func)(void)) {pt_add_suite231,4139
+static clock_t start, end;start238,4223
+static clock_t start, end;end238,4223
+static char current_suite[MAX_NAME];current_suite239,4250
+int pt_run(void) {pt_run241,4288
+
+mpc/tests/regex.c,912
+static int string_eq(const void* x, const void* y) { return (strcmp(x, y) == 0); }string_eq7,87
+static void string_print(const void* x) { printf("'%s'", (char*)x); }string_print8,171
+int regex_test_pass(mpc_parser_t *p, const char* value, const char* match) {regex_test_pass10,244
+int regex_test_fail(mpc_parser_t *p, const char* value, const char* match) {regex_test_fail14,400
+void test_regex_basic(void) {test_regex_basic18,556
+void test_regex_boundary(void) {test_regex_boundary48,1429
+void test_regex_range(void) {test_regex_range81,2449
+void test_regex_string(void) {test_regex_string99,2780
+void test_regex_lisp_comment(void) {test_regex_lisp_comment112,3168
+void test_regex_newline(void) {test_regex_newline123,3418
+void test_regex_multiline(void) {test_regex_multiline135,3684
+void test_regex_dotall(void) {test_regex_dotall150,4206
+void suite_regex(void) {suite_regex172,5047
+
+mpc/tests/combinators.c,367
+static int check_is_a(mpc_val_t** x) {check_is_a4,43
+static int check_is(mpc_val_t** x, void* t) {check_is8,120
+void test_check(void) {test_check12,202
+void test_check_with(void) {test_check_with30,749
+void test_checkf(void) {test_checkf48,1343
+void test_check_withf(void) {test_check_withf66,1898
+void suite_combinators(void) {suite_combinators84,2500
+
+mpc/tests/core.c,973
+static int int_eq(const void* x, const void* y) { return (*(int*)x == *(int*)y); }int_eq7,87
+static void int_print(const void* x) { printf("'%i'", *((int*)x)); }int_print8,171
+static int streq(const void* x, const void* y) { return (strcmp(x, y) == 0); }streq9,241
+static void strprint(const void* x) { printf("'%s'", (char*)x); }strprint10,321
+void test_ident(void) {test_ident12,390
+void test_maths(void) {test_maths36,1254
+void test_strip(void) {test_strip72,2312
+void test_repeat(void) {test_repeat88,2995
+void test_copy(void) {test_copy117,3654
+static int line_count = 0;line_count155,4549
+static mpc_val_t* read_line(mpc_val_t* line) {read_line157,4579
+void test_reader(void) {test_reader162,4665
+static int token_count = 0;token_count188,5271
+static mpc_val_t *print_token(mpc_val_t *x) {print_token190,5302
+void test_tokens(void) {test_tokens196,5427
+void test_eoi(void) {test_eoi214,5844
+void suite_core(void) {suite_core225,6105
+
+mpc/tests/test.c,45
+int main(int argc, char** argv) {main8,131
+
+mpc/tests/ptest.h,238
+#define ptest_hptest_h2,16
+#define PT_SUITE(PT_SUITE6,54
+#define PT_FUNC(PT_FUNC8,94
+#define PT_REG(PT_REG9,139
+#define PT_TEST(PT_TEST10,185
+#define PT_ASSERT(PT_ASSERT12,260
+#define PT_ASSERT_STR_EQ(PT_ASSERT_STR_EQ13,338
+
+mpc/tests/grammar.c,508
+void test_grammar(void) {test_grammar4,43
+void test_language(void) {test_language60,2470
+void test_language_file(void) {test_language_file79,3030
+void test_doge(void) {test_doge94,3395
+void test_partial(void) {test_partial131,4859
+void test_qscript(void) {test_qscript172,6201
+void test_missingrule(void) {test_missingrule261,9863
+void test_regex_mode(void) {test_regex_mode285,10398
+void test_digits_file(void) {test_digits_file340,12184
+void suite_grammar(void) {suite_grammar403,13668
+
+mpc/mpc.h,2491
+#define mpc_hmpc_h11,189
+typedef struct {__anon2241438a010829,419
+  long pos;pos30,437
+  long row;row31,450
+  long col;col32,463
+  int term;term33,476
+} mpc_state_t;mpc_state_t34,489
+typedef struct {__anon2241438a020840,532
+  mpc_state_t state;state41,550
+  int expected_num;expected_num42,572
+  char *filename;filename43,593
+  char *failure;failure44,612
+  char **expected;expected45,630
+  char received;received46,650
+} mpc_err_t;mpc_err_t47,668
+typedef void mpc_val_t;mpc_val_t58,863
+typedef union {__anon2241438a030a60,890
+  mpc_err_t *error;error61,907
+  mpc_val_t *output;output62,928
+} mpc_result_t;mpc_result_t63,950
+typedef struct mpc_parser_t mpc_parser_t;mpc_parser_t66,991
+typedef void(*mpc_dtor_t)(mpc_val_t*);mpc_dtor_t78,1526
+typedef mpc_val_t*(*mpc_ctor_t)(void);mpc_ctor_t79,1566
+typedef mpc_val_t*(*mpc_apply_t)(mpc_val_t*);mpc_apply_t81,1608
+typedef mpc_val_t*(*mpc_apply_to_t)(mpc_val_t*,void*);mpc_apply_to_t82,1655
+typedef mpc_val_t*(*mpc_fold_t)(int,mpc_val_t**);mpc_fold_t83,1711
+typedef int(*mpc_check_t)(mpc_val_t**);mpc_check_t85,1764
+typedef int(*mpc_check_with_t)(mpc_val_t**,void*);mpc_check_with_t86,1805
+enum {__anon2241438a0403268,7631
+  MPC_RE_DEFAULT   = 0,MPC_RE_DEFAULT269,7639
+  MPC_RE_M         = 1,MPC_RE_M270,7664
+  MPC_RE_S         = 2,MPC_RE_S271,7689
+  MPC_RE_MULTILINE = 1,MPC_RE_MULTILINE272,7714
+  MPC_RE_DOTALL    = 2MPC_RE_DOTALL273,7739
+typedef struct mpc_ast_t {mpc_ast_t283,7884
+  char *tag;tag284,7912
+  char *contents;contents285,7926
+  mpc_state_t state;state286,7945
+  int children_num;children_num287,7967
+  struct mpc_ast_t** children;children288,7988
+} mpc_ast_t;mpc_ast_t289,8020
+typedef enum {__anon2241438a0503309,8879
+  mpc_ast_trav_order_pre,mpc_ast_trav_order_pre310,8895
+  mpc_ast_trav_order_postmpc_ast_trav_order_post311,8922
+} mpc_ast_trav_order_t;mpc_ast_trav_order_t312,8949
+typedef struct mpc_ast_trav_t {mpc_ast_trav_t314,8976
+  mpc_ast_t             *curr_node;curr_node315,9009
+  struct mpc_ast_trav_t *parent;parent316,9046
+  int                    curr_child;curr_child317,9080
+  mpc_ast_trav_order_t   order;order318,9118
+} mpc_ast_trav_t;mpc_ast_trav_t319,9151
+enum {__anon2241438a0603353,10251
+  MPCA_LANG_DEFAULT              = 0,MPCA_LANG_DEFAULT354,10259
+  MPCA_LANG_PREDICTIVE           = 1,MPCA_LANG_PREDICTIVE355,10298
+  MPCA_LANG_WHITESPACE_SENSITIVE = 2MPCA_LANG_WHITESPACE_SENSITIVE356,10337
+
+mpc/examples/smallc.c,44
+int main(int argc, char **argv) {main3,21
+
+mpc/examples/maths.c,44
+int main(int argc, char **argv) {main3,21
+
+mpc/examples/doge.c,44
+int main(int argc, char **argv) {main3,21
+
+mpc/examples/lispy.c,44
+int main(int argc, char **argv) {main3,21
+
+mpc/examples/foobar.c,44
+int main(int argc, char** argv) {main3,21
+
+mpc/examples/line_reader.c,97
+static void* read_line(void* line) {read_line3,23
+int main(int argc, char **argv) {main8,126
+
+mpc/examples/tree_traversal.c,45
+int main(int argc, char *argv[]) {main3,21
+
+mpc/README.md,1730
+Micro Parser CombinatorsMicro Parser Combinators1,0
+AboutAbout7,73
+FeaturesFeatures22,506
+AlternativesAlternatives33,744
+QuickstartQuickstart46,1244
+Getting StartedGetting Started100,2591
+IntroductionIntroduction103,2627
+Basic ParsersBasic Parsers112,3449
+### String ParsersString Parsers115,3481
+### Other ParsersOther Parsers176,4565
+ParsingParsing235,6070
+CombinatorsCombinators283,7189
+Function TypesFunction Types392,12528
+Case Study - IdentifierCase Study - Identifier440,14296
+Combinator MethodCombinator Method443,14348
+Regex MethodRegex Method487,15966
+Library MethodLibrary Method501,16330
+Parser ReferencesParser References514,16631
+Library ReferenceLibrary Reference578,19183
+Common ParsersCommon Parsers581,19223
+Useful ParsersUseful Parsers622,22560
+Apply FunctionsApply Functions650,25726
+Fold FunctionsFold Functions677,28363
+Case Study - Maths LanguageCase Study - Maths Language696,29775
+Combinator ApproachCombinator Approach699,29835
+Language ApproachLanguage Approach758,31666
+Case Study - TokenizerCase Study - Tokenizer827,36115
+Error ReportingError Reporting885,37857
+MiscMisc894,38220
+Limitations & FAQLimitations & FAQ924,38936
+### Does _mpc_ support Unicode?Does _mpc_ support Unicode?927,38976
+### Is _mpc_ binary safe?Is _mpc_ binary safe?932,39143
+### The Parser is going into an infinite loop!The Parser is going into an infinite loop!937,39284
+### Backtracking isn't working!Backtracking isn't working!955,40562
+### How can I avoid the maximum string literal length?How can I avoid the maximum string literal length?982,42172
+### The automatic tags in the AST are annoying!The automatic tags in the AST are annoying!989,43010
+
+mpc/mpc.c,36767
+static mpc_state_t mpc_state_invalid(void) {mpc_state_invalid7,45
+static mpc_state_t mpc_state_new(void) {mpc_state_new16,187
+enum {__anon22414385010360,1332
+  MPC_INPUT_STRING = 0,MPC_INPUT_STRING61,1340
+  MPC_INPUT_FILE   = 1,MPC_INPUT_FILE62,1365
+  MPC_INPUT_PIPE   = 2MPC_INPUT_PIPE63,1390
+enum {__anon22414385020366,1420
+  MPC_INPUT_MARKS_MIN = 32MPC_INPUT_MARKS_MIN67,1428
+enum {__anon22414385030370,1462
+  MPC_INPUT_MEM_NUM = 512MPC_INPUT_MEM_NUM71,1470
+typedef struct {__anon22414385040874,1503
+  char mem[64];mem75,1521
+} mpc_mem_t;mpc_mem_t76,1538
+typedef struct {__anon22414385050878,1554
+  int type;type80,1574
+  char *filename;filename81,1587
+  mpc_state_t state;state82,1606
+  char *string;string84,1630
+  char *buffer;buffer85,1647
+  FILE *file;file86,1664
+  int suppress;suppress88,1681
+  int backtrack;backtrack89,1698
+  int marks_slots;marks_slots90,1716
+  int marks_num;marks_num91,1736
+  mpc_state_t *marks;marks92,1754
+  char *lasts;lasts94,1779
+  char last;last95,1795
+  size_t mem_index;mem_index97,1811
+  char mem_full[MPC_INPUT_MEM_NUM];mem_full98,1832
+  mpc_mem_t mem[MPC_INPUT_MEM_NUM];mem99,1869
+} mpc_input_t;mpc_input_t101,1908
+static mpc_input_t *mpc_input_new_string(const char *filename, const char *string) {mpc_input_new_string103,1926
+static mpc_input_t *mpc_input_new_nstring(const char *filename, const char *string, size_t lengtmpc_input_new_nstring132,2666
+static mpc_input_t *mpc_input_new_pipe(const char *filename, FILE *pipe) {mpc_input_new_pipe163,3454
+static mpc_input_t *mpc_input_new_file(const char *filename, FILE *file) {mpc_input_new_file192,4132
+static void mpc_input_delete(mpc_input_t *i) {mpc_input_delete219,4806
+static int mpc_mem_ptr(mpc_input_t *i, void *p) {mpc_mem_ptr231,5049
+static void *mpc_malloc(mpc_input_t *i, size_t n) {mpc_malloc237,5227
+static void *mpc_calloc(mpc_input_t *i, size_t n, size_t m) {mpc_calloc257,5712
+static void mpc_free(mpc_input_t *i, void *p) {mpc_free263,5852
+static void *mpc_realloc(mpc_input_t *i, void *p, size_t n) {mpc_realloc270,6059
+static void *mpc_export(mpc_input_t *i, void *p) {mpc_export286,6351
+static void mpc_input_backtrack_disable(mpc_input_t *i) { i->backtrack--; }mpc_input_backtrack_disable295,6570
+static void mpc_input_backtrack_enable(mpc_input_t *i) { i->backtrack++; }mpc_input_backtrack_enable296,6647
+static void mpc_input_suppress_disable(mpc_input_t *i) { i->suppress--; }mpc_input_suppress_disable298,6725
+static void mpc_input_suppress_enable(mpc_input_t *i) { i->suppress++; }mpc_input_suppress_enable299,6800
+static void mpc_input_mark(mpc_input_t *i) {mpc_input_mark301,6876
+static void mpc_input_unmark(mpc_input_t *i) {mpc_input_unmark322,7406
+static void mpc_input_rewind(mpc_input_t *i) {mpc_input_rewind348,8088
+static int mpc_input_buffer_in_range(mpc_input_t *i) {mpc_input_buffer_in_range362,8376
+static char mpc_input_buffer_get(mpc_input_t *i) {mpc_input_buffer_get366,8507
+static char mpc_input_getc(mpc_input_t *i) {mpc_input_getc370,8617
+static char mpc_input_peekc(mpc_input_t *i) {mpc_input_peekc394,9132
+static int mpc_input_terminated(mpc_input_t *i) {mpc_input_terminated431,9905
+static int mpc_input_failure(mpc_input_t *i, char c) {mpc_input_failure435,9999
+static int mpc_input_success(mpc_input_t *i, char c, char **o) {mpc_input_success455,10452
+static int mpc_input_any(mpc_input_t *i, char **o) {mpc_input_any482,10995
+static int mpc_input_char(mpc_input_t *i, char c, char **o) {mpc_input_char489,11175
+static int mpc_input_range(mpc_input_t *i, char c, char d, char **o) {mpc_input_range496,11399
+static int mpc_input_oneof(mpc_input_t *i, const char *c, char **o) {mpc_input_oneof503,11644
+static int mpc_input_noneof(mpc_input_t *i, const char *c, char **o) {mpc_input_noneof510,11889
+static int mpc_input_satisfy(mpc_input_t *i, int(*cond)(char), char **o) {mpc_input_satisfy517,12135
+static int mpc_input_string(mpc_input_t *i, const char *c, char **o) {mpc_input_string524,12375
+static int mpc_input_anchor(mpc_input_t* i, int(*f)(char,char), char **o) {mpc_input_anchor543,12719
+static int mpc_input_soi(mpc_input_t* i, char **o) {mpc_input_soi548,12857
+static int mpc_input_eoi(mpc_input_t* i, char **o) {mpc_input_eoi553,12957
+static mpc_state_t *mpc_input_state_copy(mpc_input_t *i) {mpc_input_state_copy565,13181
+void mpc_err_delete(mpc_err_t *x) {mpc_err_delete575,13386
+void mpc_err_print(mpc_err_t *x) {mpc_err_print584,13582
+void mpc_err_print_to(mpc_err_t *x, FILE *f) {mpc_err_print_to588,13655
+static void mpc_err_string_cat(char *buffer, int *pos, int *max, char const *fmt, ...) {mpc_err_string_cat594,13782
+static char char_unescape_buffer[4];char_unescape_buffer604,14081
+static const char *mpc_err_char_unescape(char c) {mpc_err_char_unescape606,14121
+char *mpc_err_string(mpc_err_t *x) {mpc_err_string630,14748
+static mpc_err_t *mpc_err_new(mpc_input_t *i, const char *expected) {mpc_err_new666,15867
+static mpc_err_t *mpc_err_fail(mpc_input_t *i, const char *failure) {mpc_err_fail682,16393
+static mpc_err_t *mpc_err_file(const char *filename, const char *failure) {mpc_err_file697,16848
+static void mpc_err_delete_internal(mpc_input_t *i, mpc_err_t *x) {mpc_err_delete_internal711,17252
+static mpc_err_t *mpc_err_export(mpc_input_t *i, mpc_err_t *x) {mpc_err_export721,17545
+static int mpc_err_contains_expected(mpc_input_t *i, mpc_err_t *x, char *expected) {mpc_err_contains_expected732,17888
+static void mpc_err_add_expected(mpc_input_t *i, mpc_err_t *x, char *expected) {mpc_err_add_expected741,18124
+static mpc_err_t *mpc_err_or(mpc_input_t *i, mpc_err_t** x, int n) {mpc_err_or749,18450
+static mpc_err_t *mpc_err_repeat(mpc_input_t *i, mpc_err_t *x, const char *prefix) {mpc_err_repeat801,19706
+static mpc_err_t *mpc_err_many1(mpc_input_t *i, mpc_err_t *x) {mpc_err_many1857,21248
+static mpc_err_t *mpc_err_count(mpc_input_t *i, mpc_err_t *x, int n) {mpc_err_count861,21369
+static mpc_err_t *mpc_err_merge(mpc_input_t *i, mpc_err_t *x, mpc_err_t *y) {mpc_err_merge872,21669
+enum {__anon224143850603883,21868
+  MPC_TYPE_UNDEFINED  = 0,MPC_TYPE_UNDEFINED884,21876
+  MPC_TYPE_PASS       = 1,MPC_TYPE_PASS885,21904
+  MPC_TYPE_FAIL       = 2,MPC_TYPE_FAIL886,21932
+  MPC_TYPE_LIFT       = 3,MPC_TYPE_LIFT887,21960
+  MPC_TYPE_LIFT_VAL   = 4,MPC_TYPE_LIFT_VAL888,21988
+  MPC_TYPE_EXPECT     = 5,MPC_TYPE_EXPECT889,22016
+  MPC_TYPE_ANCHOR     = 6,MPC_TYPE_ANCHOR890,22044
+  MPC_TYPE_STATE      = 7,MPC_TYPE_STATE891,22072
+  MPC_TYPE_ANY        = 8,MPC_TYPE_ANY893,22102
+  MPC_TYPE_SINGLE     = 9,MPC_TYPE_SINGLE894,22130
+  MPC_TYPE_ONEOF      = 10,MPC_TYPE_ONEOF895,22158
+  MPC_TYPE_NONEOF     = 11,MPC_TYPE_NONEOF896,22187
+  MPC_TYPE_RANGE      = 12,MPC_TYPE_RANGE897,22216
+  MPC_TYPE_SATISFY    = 13,MPC_TYPE_SATISFY898,22245
+  MPC_TYPE_STRING     = 14,MPC_TYPE_STRING899,22274
+  MPC_TYPE_APPLY      = 15,MPC_TYPE_APPLY901,22305
+  MPC_TYPE_APPLY_TO   = 16,MPC_TYPE_APPLY_TO902,22334
+  MPC_TYPE_PREDICT    = 17,MPC_TYPE_PREDICT903,22363
+  MPC_TYPE_NOT        = 18,MPC_TYPE_NOT904,22392
+  MPC_TYPE_MAYBE      = 19,MPC_TYPE_MAYBE905,22421
+  MPC_TYPE_MANY       = 20,MPC_TYPE_MANY906,22450
+  MPC_TYPE_MANY1      = 21,MPC_TYPE_MANY1907,22479
+  MPC_TYPE_COUNT      = 22,MPC_TYPE_COUNT908,22508
+  MPC_TYPE_OR         = 23,MPC_TYPE_OR910,22539
+  MPC_TYPE_AND        = 24,MPC_TYPE_AND911,22568
+  MPC_TYPE_CHECK      = 25,MPC_TYPE_CHECK913,22599
+  MPC_TYPE_CHECK_WITH = 26,MPC_TYPE_CHECK_WITH914,22628
+  MPC_TYPE_SOI        = 27,MPC_TYPE_SOI916,22659
+  MPC_TYPE_EOI        = 28MPC_TYPE_EOI917,22688
+typedef struct { char *m; } mpc_pdata_fail_t;__anon224143850708920,22722
+typedef struct { char *m; } mpc_pdata_fail_t;m920,22722
+typedef struct { char *m; } mpc_pdata_fail_t;mpc_pdata_fail_t920,22722
+typedef struct { mpc_ctor_t lf; void *x; } mpc_pdata_lift_t;__anon224143850808921,22769
+typedef struct { mpc_ctor_t lf; void *x; } mpc_pdata_lift_t;lf921,22769
+typedef struct { mpc_ctor_t lf; void *x; } mpc_pdata_lift_t;x921,22769
+typedef struct { mpc_ctor_t lf; void *x; } mpc_pdata_lift_t;mpc_pdata_lift_t921,22769
+typedef struct { mpc_parser_t *x; char *m; } mpc_pdata_expect_t;__anon224143850908922,22831
+typedef struct { mpc_parser_t *x; char *m; } mpc_pdata_expect_t;x922,22831
+typedef struct { mpc_parser_t *x; char *m; } mpc_pdata_expect_t;m922,22831
+typedef struct { mpc_parser_t *x; char *m; } mpc_pdata_expect_t;mpc_pdata_expect_t922,22831
+typedef struct { int(*f)(char,char); } mpc_pdata_anchor_t;__anon224143850a08923,22897
+typedef struct { int(*f)(char,char); } mpc_pdata_anchor_t;f923,22897
+typedef struct { int(*f)(char,char); } mpc_pdata_anchor_t;mpc_pdata_anchor_t923,22897
+typedef struct { char x; } mpc_pdata_single_t;__anon224143850b08924,22957
+typedef struct { char x; } mpc_pdata_single_t;x924,22957
+typedef struct { char x; } mpc_pdata_single_t;mpc_pdata_single_t924,22957
+typedef struct { char x; char y; } mpc_pdata_range_t;__anon224143850c08925,23005
+typedef struct { char x; char y; } mpc_pdata_range_t;x925,23005
+typedef struct { char x; char y; } mpc_pdata_range_t;y925,23005
+typedef struct { char x; char y; } mpc_pdata_range_t;mpc_pdata_range_t925,23005
+typedef struct { int(*f)(char); } mpc_pdata_satisfy_t;__anon224143850d08926,23060
+typedef struct { int(*f)(char); } mpc_pdata_satisfy_t;f926,23060
+typedef struct { int(*f)(char); } mpc_pdata_satisfy_t;mpc_pdata_satisfy_t926,23060
+typedef struct { char *x; } mpc_pdata_string_t;__anon224143850e08927,23116
+typedef struct { char *x; } mpc_pdata_string_t;x927,23116
+typedef struct { char *x; } mpc_pdata_string_t;mpc_pdata_string_t927,23116
+typedef struct { mpc_parser_t *x; mpc_apply_t f; } mpc_pdata_apply_t;__anon224143850f08928,23165
+typedef struct { mpc_parser_t *x; mpc_apply_t f; } mpc_pdata_apply_t;x928,23165
+typedef struct { mpc_parser_t *x; mpc_apply_t f; } mpc_pdata_apply_t;f928,23165
+typedef struct { mpc_parser_t *x; mpc_apply_t f; } mpc_pdata_apply_t;mpc_pdata_apply_t928,23165
+typedef struct { mpc_parser_t *x; mpc_apply_to_t f; void *d; } mpc_pdata_apply_to_t;__anon224143851008929,23236
+typedef struct { mpc_parser_t *x; mpc_apply_to_t f; void *d; } mpc_pdata_apply_to_t;x929,23236
+typedef struct { mpc_parser_t *x; mpc_apply_to_t f; void *d; } mpc_pdata_apply_to_t;f929,23236
+typedef struct { mpc_parser_t *x; mpc_apply_to_t f; void *d; } mpc_pdata_apply_to_t;d929,23236
+typedef struct { mpc_parser_t *x; mpc_apply_to_t f; void *d; } mpc_pdata_apply_to_t;mpc_pdata_apply_to_t929,23236
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;__anon224143851108930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;x930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;dx930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;f930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;e930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_t f; char *e; } mpc_pdata_check_t;mpc_pdata_check_t930,23322
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pda__anon224143851208931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdax931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdadx931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdaf931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdad931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdae931,23417
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_check_with_t f; void *d; char *e; } mpc_pdampc_pdata_check_with_t931,23417
+typedef struct { mpc_parser_t *x; } mpc_pdata_predict_t;__anon224143851308932,23531
+typedef struct { mpc_parser_t *x; } mpc_pdata_predict_t;x932,23531
+typedef struct { mpc_parser_t *x; } mpc_pdata_predict_t;mpc_pdata_predict_t932,23531
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_ctor_t lf; } mpc_pdata_not_t;__anon224143851408933,23589
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_ctor_t lf; } mpc_pdata_not_t;x933,23589
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_ctor_t lf; } mpc_pdata_not_t;dx933,23589
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_ctor_t lf; } mpc_pdata_not_t;lf933,23589
+typedef struct { mpc_parser_t *x; mpc_dtor_t dx; mpc_ctor_t lf; } mpc_pdata_not_t;mpc_pdata_not_t933,23589
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;__anon224143851508934,23673
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;n934,23673
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;f934,23673
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;x934,23673
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;dx934,23673
+typedef struct { int n; mpc_fold_t f; mpc_parser_t *x; mpc_dtor_t dx; } mpc_pdata_repeat_t;mpc_pdata_repeat_t934,23673
+typedef struct { int n; mpc_parser_t **xs; } mpc_pdata_or_t;__anon224143851608935,23766
+typedef struct { int n; mpc_parser_t **xs; } mpc_pdata_or_t;n935,23766
+typedef struct { int n; mpc_parser_t **xs; } mpc_pdata_or_t;xs935,23766
+typedef struct { int n; mpc_parser_t **xs; } mpc_pdata_or_t;mpc_pdata_or_t935,23766
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;__anon224143851708936,23828
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;n936,23828
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;f936,23828
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;xs936,23828
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;dxs936,23828
+typedef struct { int n; mpc_fold_t f; mpc_parser_t **xs; mpc_dtor_t *dxs;  } mpc_pdata_and_t;mpc_pdata_and_t936,23828
+typedef union {__anon22414385180a938,23925
+  mpc_pdata_fail_t fail;fail939,23942
+  mpc_pdata_lift_t lift;lift940,23968
+  mpc_pdata_expect_t expect;expect941,23994
+  mpc_pdata_anchor_t anchor;anchor942,24024
+  mpc_pdata_single_t single;single943,24054
+  mpc_pdata_range_t range;range944,24084
+  mpc_pdata_satisfy_t satisfy;satisfy945,24112
+  mpc_pdata_string_t string;string946,24144
+  mpc_pdata_apply_t apply;apply947,24174
+  mpc_pdata_apply_to_t apply_to;apply_to948,24202
+  mpc_pdata_check_t check;check949,24236
+  mpc_pdata_check_with_t check_with;check_with950,24264
+  mpc_pdata_predict_t predict;predict951,24302
+  mpc_pdata_not_t not;not952,24334
+  mpc_pdata_repeat_t repeat;repeat953,24358
+  mpc_pdata_and_t and;and954,24388
+  mpc_pdata_or_t or;or955,24412
+} mpc_pdata_t;mpc_pdata_t956,24434
+struct mpc_parser_t {mpc_parser_t958,24452
+  char *name;name959,24475
+  mpc_pdata_t data;data960,24490
+  char type;type961,24511
+  char retained;retained962,24525
+static mpc_val_t *mpcf_input_nth_free(mpc_input_t *i, int n, mpc_val_t **xs, int x) {mpcf_input_nth_free965,24549
+static mpc_val_t *mpcf_input_fst_free(mpc_input_t *i, int n, mpc_val_t **xs) { return mpcf_inputmpcf_input_fst_free971,24735
+static mpc_val_t *mpcf_input_snd_free(mpc_input_t *i, int n, mpc_val_t **xs) { return mpcf_inputmpcf_input_snd_free972,24858
+static mpc_val_t *mpcf_input_trd_free(mpc_input_t *i, int n, mpc_val_t **xs) { return mpcf_inputmpcf_input_trd_free973,24981
+static mpc_val_t *mpcf_input_strfold(mpc_input_t *i, int n, mpc_val_t **xs) {mpcf_input_strfold975,25106
+static mpc_val_t *mpcf_input_state_ast(mpc_input_t *i, int n, mpc_val_t **xs) {mpcf_input_state_ast985,25446
+static mpc_val_t *mpc_parse_fold(mpc_input_t *i, mpc_fold_t f, int n, mpc_val_t **xs) {mpc_parse_fold994,25690
+static mpc_val_t *mpcf_input_free(mpc_input_t *i, mpc_val_t *x) {mpcf_input_free1009,26450
+static mpc_val_t *mpcf_input_str_ast(mpc_input_t *i, mpc_val_t *c) {mpcf_input_str_ast1014,26557
+static mpc_val_t *mpc_parse_apply(mpc_input_t *i, mpc_apply_t f, mpc_val_t *x) {mpc_parse_apply1020,26702
+static mpc_val_t *mpc_parse_apply_to(mpc_input_t *i, mpc_apply_to_t f, mpc_val_t *x, mpc_val_t *mpc_parse_apply_to1026,26945
+static void mpc_parse_dtor(mpc_input_t *i, mpc_dtor_t d, mpc_val_t *x) {mpc_parse_dtor1030,27086
+enum {__anon2241438519031035,27235
+  MPC_PARSE_STACK_MIN = 4MPC_PARSE_STACK_MIN1036,27243
+#define MPC_SUCCESS(MPC_SUCCESS1039,27276
+#define MPC_FAILURE(MPC_FAILURE1040,27324
+#define MPC_PRIMITIVE(MPC_PRIMITIVE1041,27371
+#define MPC_MAX_RECURSION_DEPTH MPC_MAX_RECURSION_DEPTH1045,27472
+static int mpc_parse_run(mpc_input_t *i, mpc_parser_t *p, mpc_result_t *r, mpc_err_t **e, int dempc_parse_run1047,27512
+int mpc_parse_input(mpc_input_t *i, mpc_parser_t *p, mpc_result_t *r) {mpc_parse_input1307,36413
+int mpc_parse(const char *filename, const char *string, mpc_parser_t *p, mpc_result_t *r) {mpc_parse1321,36813
+int mpc_nparse(const char *filename, const char *string, size_t length, mpc_parser_t *p, mpc_resmpc_nparse1329,37051
+int mpc_parse_file(const char *filename, FILE *file, mpc_parser_t *p, mpc_result_t *r) {mpc_parse_file1337,37314
+int mpc_parse_pipe(const char *filename, FILE *pipe, mpc_parser_t *p, mpc_result_t *r) {mpc_parse_pipe1345,37545
+int mpc_parse_contents(const char *filename, mpc_parser_t *p, mpc_result_t *r) {mpc_parse_contents1353,37776
+static void mpc_undefine_or(mpc_parser_t *p) {mpc_undefine_or1375,38217
+static void mpc_undefine_and(mpc_parser_t *p) {mpc_undefine_and1385,38404
+static void mpc_undefine_unretained(mpc_parser_t *p, int force) {mpc_undefine_unretained1396,38621
+void mpc_delete(mpc_parser_t *p) {mpc_delete1453,40044
+static void mpc_soft_delete(mpc_val_t *x) {mpc_soft_delete1468,40287
+static mpc_parser_t *mpc_undefined(void) {mpc_undefined1472,40371
+mpc_parser_t *mpc_new(const char *name) {mpc_new1480,40559
+mpc_parser_t *mpc_copy(mpc_parser_t *a) {mpc_copy1488,40753
+mpc_parser_t *mpc_undefine(mpc_parser_t *p) {mpc_undefine1574,43287
+mpc_parser_t *mpc_define(mpc_parser_t *p, mpc_parser_t *a) {mpc_define1580,43419
+void mpc_cleanup(int n, ...) {mpc_cleanup1596,43745
+mpc_parser_t *mpc_pass(void) {mpc_pass1610,44095
+mpc_parser_t *mpc_fail(const char *m) {mpc_fail1616,44211
+mpc_parser_t *mpc_failf(const char *fmt, ...) {mpc_failf1644,44869
+mpc_parser_t *mpc_lift_val(mpc_val_t *x) {mpc_lift_val1663,45214
+mpc_parser_t *mpc_lift(mpc_ctor_t lf) {mpc_lift1670,45369
+mpc_parser_t *mpc_anchor(int(*f)(char,char)) {mpc_anchor1677,45519
+mpc_parser_t *mpc_state(void) {mpc_state1684,45700
+mpc_parser_t *mpc_expect(mpc_parser_t *a, const char *expected) {mpc_expect1690,45818
+mpc_parser_t *mpc_expectf(mpc_parser_t *a, const char *fmt, ...) {mpc_expectf1719,46549
+mpc_parser_t *mpc_any(void) {mpc_any1741,46966
+mpc_parser_t *mpc_char(char c) {mpc_char1747,47109
+mpc_parser_t *mpc_range(char s, char e) {mpc_range1754,47278
+mpc_parser_t *mpc_oneof(const char *s) {mpc_oneof1762,47508
+mpc_parser_t *mpc_noneof(const char *s) {mpc_noneof1770,47743
+mpc_parser_t *mpc_satisfy(int(*f)(char)) {mpc_satisfy1779,47983
+mpc_parser_t *mpc_string(const char *s) {mpc_string1786,48192
+mpc_parser_t *mpc_apply(mpc_parser_t *a, mpc_apply_t f) {mpc_apply1798,48451
+mpc_parser_t *mpc_apply_to(mpc_parser_t *a, mpc_apply_to_t f, void *x) {mpc_apply_to1806,48643
+mpc_parser_t *mpc_check(mpc_parser_t *a, mpc_dtor_t da, mpc_check_t f, const char *e) {mpc_check1815,48886
+mpc_parser_t *mpc_check_with(mpc_parser_t *a, mpc_dtor_t da, mpc_check_with_t f, void *x, const mpc_check_with1826,49210
+mpc_parser_t *mpc_checkf(mpc_parser_t *a, mpc_dtor_t da, mpc_check_t f, const char *fmt, ...) {mpc_checkf1838,49612
+mpc_parser_t *mpc_check_withf(mpc_parser_t *a, mpc_dtor_t da, mpc_check_with_t f, void *x, constmpc_check_withf1854,49931
+mpc_parser_t *mpc_predictive(mpc_parser_t *a) {mpc_predictive1870,50277
+mpc_parser_t *mpc_not_lift(mpc_parser_t *a, mpc_dtor_t da, mpc_ctor_t lf) {mpc_not_lift1877,50439
+mpc_parser_t *mpc_not(mpc_parser_t *a, mpc_dtor_t da) {mpc_not1886,50669
+mpc_parser_t *mpc_maybe_lift(mpc_parser_t *a, mpc_ctor_t lf) {mpc_maybe_lift1890,50778
+mpc_parser_t *mpc_maybe(mpc_parser_t *a) {mpc_maybe1898,50973
+mpc_parser_t *mpc_many(mpc_fold_t f, mpc_parser_t *a) {mpc_many1902,51067
+mpc_parser_t *mpc_many1(mpc_fold_t f, mpc_parser_t *a) {mpc_many11910,51258
+mpc_parser_t *mpc_count(int n, mpc_fold_t f, mpc_parser_t *a, mpc_dtor_t da) {mpc_count1918,51451
+mpc_parser_t *mpc_or(int n, ...) {mpc_or1928,51718
+mpc_parser_t *mpc_and(int n, mpc_fold_t f, ...) {mpc_and1948,52066
+mpc_parser_t *mpc_soi(void) {mpc_soi1977,52629
+mpc_parser_t *mpc_eoi(void) {mpc_eoi1983,52773
+static int mpc_boundary_anchor(char prev, char next) {mpc_boundary_anchor1989,52915
+static int mpc_boundary_newline_anchor(char prev, char next) {mpc_boundary_newline_anchor2000,53376
+mpc_parser_t *mpc_boundary(void) { return mpc_expect(mpc_anchor(mpc_boundary_anchor), "word bounmpc_boundary2005,53484
+mpc_parser_t *mpc_boundary_newline(void) { return mpc_expect(mpc_anchor(mpc_boundary_newline_ancmpc_boundary_newline2006,53591
+mpc_parser_t *mpc_whitespace(void) { return mpc_expect(mpc_oneof(" \f\n\r\t\v"), "whitespace"); mpc_whitespace2008,53719
+mpc_parser_t *mpc_whitespaces(void) { return mpc_expect(mpc_many(mpcf_strfold, mpc_whitespace())mpc_whitespaces2009,53818
+mpc_parser_t *mpc_blank(void) { return mpc_expect(mpc_apply(mpc_whitespaces(), mpcf_free), "whitmpc_blank2010,53930
+mpc_parser_t *mpc_newline(void) { return mpc_expect(mpc_char('\n'), "newline"); }mpc_newline2012,54041
+mpc_parser_t *mpc_tab(void) { return mpc_expect(mpc_char('\t'), "tab"); }mpc_tab2013,54124
+mpc_parser_t *mpc_escape(void) { return mpc_and(2, mpcf_strfold, mpc_char('\\'), mpc_any(), freempc_escape2014,54199
+mpc_parser_t *mpc_digit(void) { return mpc_expect(mpc_oneof("0123456789"), "digit"); }mpc_digit2016,54303
+mpc_parser_t *mpc_hexdigit(void) { return mpc_expect(mpc_oneof("0123456789ABCDEFabcdef"), "hex dmpc_hexdigit2017,54391
+mpc_parser_t *mpc_octdigit(void) { return mpc_expect(mpc_oneof("01234567"), "oct digit"); }mpc_octdigit2018,54498
+mpc_parser_t *mpc_digits(void) { return mpc_expect(mpc_many1(mpcf_strfold, mpc_digit()), "digitsmpc_digits2019,54591
+mpc_parser_t *mpc_hexdigits(void) { return mpc_expect(mpc_many1(mpcf_strfold, mpc_hexdigit()), "mpc_hexdigits2020,54694
+mpc_parser_t *mpc_octdigits(void) { return mpc_expect(mpc_many1(mpcf_strfold, mpc_octdigit()), "mpc_octdigits2021,54807
+mpc_parser_t *mpc_lower(void) { return mpc_expect(mpc_oneof("abcdefghijklmnopqrstuvwxyz"), "lowempc_lower2023,54922
+mpc_parser_t *mpc_upper(void) { return mpc_expect(mpc_oneof("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "uppempc_upper2024,55037
+mpc_parser_t *mpc_alpha(void) { return mpc_expect(mpc_oneof("abcdefghijklmnopqrstuvwxyzABCDEFGHImpc_alpha2025,55152
+mpc_parser_t *mpc_underscore(void) { return mpc_expect(mpc_char('_'), "underscore"); }mpc_underscore2026,55283
+mpc_parser_t *mpc_alphanum(void) { return mpc_expect(mpc_or(3, mpc_alpha(), mpc_digit(), mpc_undmpc_alphanum2027,55371
+mpc_parser_t *mpc_int(void) { return mpc_expect(mpc_apply(mpc_digits(), mpcf_int), "integer"); }mpc_int2029,55501
+mpc_parser_t *mpc_hex(void) { return mpc_expect(mpc_apply(mpc_hexdigits(), mpcf_hex), "hexadecimmpc_hex2030,55599
+mpc_parser_t *mpc_oct(void) { return mpc_expect(mpc_apply(mpc_octdigits(), mpcf_oct), "octadecimmpc_oct2031,55704
+mpc_parser_t *mpc_number(void) { return mpc_expect(mpc_or(3, mpc_int(), mpc_hex(), mpc_oct()), "mpc_number2032,55809
+mpc_parser_t *mpc_real(void) {mpc_real2034,55920
+mpc_parser_t *mpc_float(void) {mpc_float2052,56531
+mpc_parser_t *mpc_char_lit(void) {mpc_char_lit2056,56635
+mpc_parser_t *mpc_string_lit(void) {mpc_string_lit2060,56771
+mpc_parser_t *mpc_regex_lit(void) {mpc_regex_lit2065,56980
+mpc_parser_t *mpc_ident(void) {mpc_ident2070,57188
+mpc_parser_t *mpc_startwith(mpc_parser_t *a) { return mpc_and(2, mpcf_snd, mpc_soi(), a, mpcf_dtmpc_startwith2081,57429
+mpc_parser_t *mpc_endwith(mpc_parser_t *a, mpc_dtor_t da) { return mpc_and(2, mpcf_fst, a, mpc_empc_endwith2082,57538
+mpc_parser_t *mpc_whole(mpc_parser_t *a, mpc_dtor_t da) { return mpc_and(3, mpcf_snd, mpc_soi(),mpc_whole2083,57648
+mpc_parser_t *mpc_stripl(mpc_parser_t *a) { return mpc_and(2, mpcf_snd, mpc_blank(), a, mpcf_dtompc_stripl2085,57785
+mpc_parser_t *mpc_stripr(mpc_parser_t *a) { return mpc_and(2, mpcf_fst, a, mpc_blank(), mpcf_dtompc_stripr2086,57893
+mpc_parser_t *mpc_strip(mpc_parser_t *a) { return mpc_and(3, mpcf_snd, mpc_blank(), a, mpc_blankmpc_strip2087,58001
+mpc_parser_t *mpc_tok(mpc_parser_t *a) { return mpc_and(2, mpcf_fst, a, mpc_blank(), mpcf_dtor_nmpc_tok2088,58137
+mpc_parser_t *mpc_sym(const char *s) { return mpc_tok(mpc_string(s)); }mpc_sym2089,58242
+mpc_parser_t *mpc_total(mpc_parser_t *a, mpc_dtor_t da) { return mpc_whole(mpc_strip(a), da); }mpc_total2091,58317
+mpc_parser_t *mpc_between(mpc_parser_t *a, mpc_dtor_t ad, const char *o, const char *c) {mpc_between2093,58416
+mpc_parser_t *mpc_parens(mpc_parser_t *a, mpc_dtor_t ad)   { return mpc_between(a, ad, "(", ")")mpc_parens2099,58602
+mpc_parser_t *mpc_braces(mpc_parser_t *a, mpc_dtor_t ad)   { return mpc_between(a, ad, "<", ">")mpc_braces2100,58703
+mpc_parser_t *mpc_brackets(mpc_parser_t *a, mpc_dtor_t ad) { return mpc_between(a, ad, "{", "}")mpc_brackets2101,58804
+mpc_parser_t *mpc_squares(mpc_parser_t *a, mpc_dtor_t ad)  { return mpc_between(a, ad, "[", "]")mpc_squares2102,58905
+mpc_parser_t *mpc_tok_between(mpc_parser_t *a, mpc_dtor_t ad, const char *o, const char *c) {mpc_tok_between2104,59008
+mpc_parser_t *mpc_tok_parens(mpc_parser_t *a, mpc_dtor_t ad)   { return mpc_tok_between(a, ad, "mpc_tok_parens2110,59201
+mpc_parser_t *mpc_tok_braces(mpc_parser_t *a, mpc_dtor_t ad)   { return mpc_tok_between(a, ad, "mpc_tok_braces2111,59310
+mpc_parser_t *mpc_tok_brackets(mpc_parser_t *a, mpc_dtor_t ad) { return mpc_tok_between(a, ad, "mpc_tok_brackets2112,59419
+mpc_parser_t *mpc_tok_squares(mpc_parser_t *a, mpc_dtor_t ad)  { return mpc_tok_between(a, ad, "mpc_tok_squares2113,59528
+static mpc_val_t *mpcf_re_or(int n, mpc_val_t **xs) {mpcf_re_or2165,60853
+static mpc_val_t *mpcf_re_and(int n, mpc_val_t **xs) {mpcf_re_and2171,61010
+static mpc_val_t *mpcf_re_repeat(int n, mpc_val_t **xs) {mpcf_re_repeat2180,61225
+static mpc_parser_t *mpc_re_escape_char(char c) {mpc_re_escape_char2197,61751
+static mpc_val_t *mpcf_re_escape(mpc_val_t *x, void* data) {mpcf_re_escape2219,62750
+static const char *mpc_re_range_escape_char(char c) {mpc_re_range_escape_char2273,64060
+static mpc_val_t *mpcf_re_range(mpc_val_t *x) {mpcf_re_range2290,64553
+mpc_parser_t *mpc_re(const char *re) {mpc_re2353,66245
+mpc_parser_t *mpc_re_mode(const char *re, int mode) {mpc_re_mode2357,66333
+void mpcf_dtor_null(mpc_val_t *x) { (void) x; return; }mpcf_dtor_null2428,68129
+mpc_val_t *mpcf_ctor_null(void) { return NULL; }mpcf_ctor_null2430,68188
+mpc_val_t *mpcf_ctor_str(void) { return calloc(1, 1); }mpcf_ctor_str2431,68238
+mpc_val_t *mpcf_free(mpc_val_t *x) { free(x); return NULL; }mpcf_free2432,68295
+mpc_val_t *mpcf_int(mpc_val_t *x) {mpcf_int2434,68359
+mpc_val_t *mpcf_hex(mpc_val_t *x) {mpcf_hex2441,68488
+mpc_val_t *mpcf_oct(mpc_val_t *x) {mpcf_oct2448,68617
+mpc_val_t *mpcf_float(mpc_val_t *x) {mpcf_float2455,68745
+mpc_val_t *mpcf_strtriml(mpc_val_t *x) {mpcf_strtriml2462,68876
+mpc_val_t *mpcf_strtrimr(mpc_val_t *x) {mpcf_strtrimr2470,69030
+mpc_val_t *mpcf_strtrim(mpc_val_t *x) {mpcf_strtrim2479,69214
+static const char mpc_escape_input_c[]  = {mpc_escape_input_c2483,69303
+static const char *mpc_escape_output_c[] = {mpc_escape_output_c2487,69423
+static const char mpc_escape_input_raw_re[] = { '/' };mpc_escape_input_raw_re2491,69563
+static const char *mpc_escape_output_raw_re[] = { "\\/", NULL };mpc_escape_output_raw_re2492,69619
+static const char mpc_escape_input_raw_cstr[] = { '"' };mpc_escape_input_raw_cstr2494,69687
+static const char *mpc_escape_output_raw_cstr[] = { "\\\"", NULL };mpc_escape_output_raw_cstr2495,69745
+static const char mpc_escape_input_raw_cchar[] = { '\'' };mpc_escape_input_raw_cchar2497,69816
+static const char *mpc_escape_output_raw_cchar[] = { "\\'", NULL };mpc_escape_output_raw_cchar2498,69876
+static mpc_val_t *mpcf_escape_new(mpc_val_t *x, const char *input, const char **output) {mpcf_escape_new2500,69947
+static mpc_val_t *mpcf_unescape_new(mpc_val_t *x, const char *input, const char **output) {mpcf_unescape_new2536,70549
+mpc_val_t *mpcf_escape(mpc_val_t *x) {mpcf_escape2576,71289
+mpc_val_t *mpcf_unescape(mpc_val_t *x) {mpcf_unescape2582,71438
+mpc_val_t *mpcf_escape_regex(mpc_val_t *x) {mpcf_escape_regex2588,71591
+mpc_val_t *mpcf_unescape_regex(mpc_val_t *x) {mpcf_unescape_regex2594,71756
+mpc_val_t *mpcf_escape_string_raw(mpc_val_t *x) {mpcf_escape_string_raw2600,71925
+mpc_val_t *mpcf_unescape_string_raw(mpc_val_t *x) {mpcf_unescape_string_raw2606,72099
+mpc_val_t *mpcf_escape_char_raw(mpc_val_t *x) {mpcf_escape_char_raw2612,72277
+mpc_val_t *mpcf_unescape_char_raw(mpc_val_t *x) {mpcf_unescape_char_raw2618,72451
+mpc_val_t *mpcf_null(int n, mpc_val_t** xs) { (void) n; (void) xs; return NULL; }mpcf_null2624,72629
+mpc_val_t *mpcf_fst(int n, mpc_val_t **xs) { (void) n; return xs[0]; }mpcf_fst2625,72712
+mpc_val_t *mpcf_snd(int n, mpc_val_t **xs) { (void) n; return xs[1]; }mpcf_snd2626,72784
+mpc_val_t *mpcf_trd(int n, mpc_val_t **xs) { (void) n; return xs[2]; }mpcf_trd2627,72856
+static mpc_val_t *mpcf_nth_free(int n, mpc_val_t **xs, int x) {mpcf_nth_free2629,72930
+mpc_val_t *mpcf_fst_free(int n, mpc_val_t **xs) { return mpcf_nth_free(n, xs, 0); }mpcf_fst_free2637,73095
+mpc_val_t *mpcf_snd_free(int n, mpc_val_t **xs) { return mpcf_nth_free(n, xs, 1); }mpcf_snd_free2638,73180
+mpc_val_t *mpcf_trd_free(int n, mpc_val_t **xs) { return mpcf_nth_free(n, xs, 2); }mpcf_trd_free2639,73265
+mpc_val_t *mpcf_freefold(int n, mpc_val_t **xs) {mpcf_freefold2641,73352
+mpc_val_t *mpcf_strfold(int n, mpc_val_t **xs) {mpcf_strfold2649,73486
+mpc_val_t *mpcf_maths(int n, mpc_val_t **xs) {mpcf_maths2666,73794
+static void mpc_print_unretained(mpc_parser_t *p, int force) {mpc_print_unretained2689,74245
+void mpc_print(mpc_parser_t *p) {mpc_print2812,77779
+int mpc_test_fail(mpc_parser_t *p, const char *s, const void *d,mpc_test_fail2832,78156
+int mpc_test_pass(mpc_parser_t *p, const char *s, const void *d,mpc_test_pass2855,78621
+void mpc_ast_delete(mpc_ast_t *a) {mpc_ast_delete2887,79230
+static void mpc_ast_delete_no_children(mpc_ast_t *a) {mpc_ast_delete_no_children2904,79480
+mpc_ast_t *mpc_ast_new(const char *tag, const char *contents) {mpc_ast_new2911,79614
+mpc_ast_t *mpc_ast_build(int n, const char *tag, ...) {mpc_ast_build2929,79974
+mpc_ast_t *mpc_ast_add_root(mpc_ast_t *a) {mpc_ast_add_root2947,80248
+int mpc_ast_eq(mpc_ast_t *a, mpc_ast_t *b) {mpc_ast_eq2960,80509
+mpc_ast_t *mpc_ast_add_child(mpc_ast_t *r, mpc_ast_t *a) {mpc_ast_add_child2975,80874
+mpc_ast_t *mpc_ast_add_tag(mpc_ast_t *a, const char *t) {mpc_ast_add_tag2982,81090
+mpc_ast_t *mpc_ast_add_root_tag(mpc_ast_t *a, const char *t) {mpc_ast_add_root_tag2991,81400
+mpc_ast_t *mpc_ast_tag(mpc_ast_t *a, const char *t) {mpc_ast_tag2999,81679
+mpc_ast_t *mpc_ast_state(mpc_ast_t *a, mpc_state_t s) {mpc_ast_state3005,81818
+static void mpc_ast_print_depth(mpc_ast_t *a, int d, FILE *fp) {mpc_ast_print_depth3011,81942
+void mpc_ast_print(mpc_ast_t *a) {mpc_ast_print3037,82487
+void mpc_ast_print_to(mpc_ast_t *a, FILE *fp) {mpc_ast_print_to3041,82566
+int mpc_ast_get_index(mpc_ast_t *ast, const char *tag) {mpc_ast_get_index3045,82654
+int mpc_ast_get_index_lb(mpc_ast_t *ast, const char *tag, int lb) {mpc_ast_get_index_lb3049,82762
+mpc_ast_t *mpc_ast_get_child(mpc_ast_t *ast, const char *tag) {mpc_ast_get_child3061,82985
+mpc_ast_t *mpc_ast_get_child_lb(mpc_ast_t *ast, const char *tag, int lb) {mpc_ast_get_child_lb3065,83100
+mpc_ast_trav_t *mpc_ast_traverse_start(mpc_ast_t *ast,mpc_ast_traverse_start3077,83347
+mpc_ast_t *mpc_ast_traverse_next(mpc_ast_trav_t **trav) {mpc_ast_traverse_next3119,84327
+void mpc_ast_traverse_free(mpc_ast_trav_t **trav) {mpc_ast_traverse_free3202,86546
+mpc_val_t *mpcf_fold_ast(int n, mpc_val_t **xs) {mpcf_fold_ast3213,86787
+mpc_val_t *mpcf_str_ast(mpc_val_t *c) {mpcf_str_ast3251,87757
+mpc_val_t *mpcf_state_ast(int n, mpc_val_t **xs) {mpcf_state_ast3257,87866
+mpc_parser_t *mpca_state(mpc_parser_t *a) {mpca_state3266,88073
+mpc_parser_t *mpca_tag(mpc_parser_t *a, const char *t) {mpca_tag3270,88183
+mpc_parser_t *mpca_add_tag(mpc_parser_t *a, const char *t) {mpca_add_tag3274,88312
+mpc_parser_t *mpca_root(mpc_parser_t *a) {mpca_root3278,88449
+mpc_parser_t *mpca_not(mpc_parser_t *a) { return mpc_not(a, (mpc_dtor_t)mpc_ast_delete); }mpca_not3282,88553
+mpc_parser_t *mpca_maybe(mpc_parser_t *a) { return mpc_maybe(a); }mpca_maybe3283,88645
+mpc_parser_t *mpca_many(mpc_parser_t *a) { return mpc_many(mpcf_fold_ast, a); }mpca_many3284,88713
+mpc_parser_t *mpca_many1(mpc_parser_t *a) { return mpc_many1(mpcf_fold_ast, a); }mpca_many13285,88794
+mpc_parser_t *mpca_count(int n, mpc_parser_t *a) { return mpc_count(n, mpcf_fold_ast, a, (mpc_dtmpca_count3286,88877
+mpc_parser_t *mpca_or(int n, ...) {mpca_or3288,89000
+mpc_parser_t *mpca_and(int n, ...) {mpca_and3309,89351
+mpc_parser_t *mpca_total(mpc_parser_t *a) { return mpc_total(a, (mpc_dtor_t)mpc_ast_delete); }mpca_total3334,89888
+typedef struct {__anon224143851a083380,91092
+  va_list *va;va3381,91110
+  int parsers_num;parsers_num3382,91126
+  mpc_parser_t **parsers;parsers3383,91146
+  int flags;flags3384,91173
+} mpca_grammar_st_t;mpca_grammar_st_t3385,91187
+static mpc_val_t *mpcaf_grammar_or(int n, mpc_val_t **xs) {mpcaf_grammar_or3387,91211
+static mpc_val_t *mpcaf_grammar_and(int n, mpc_val_t **xs) {mpcaf_grammar_and3393,91375
+static mpc_val_t *mpcaf_grammar_repeat(int n, mpc_val_t **xs) {mpcaf_grammar_repeat3402,91587
+static mpc_val_t *mpcaf_grammar_string(mpc_val_t *x, void *s) {mpcaf_grammar_string3419,92119
+static mpc_val_t *mpcaf_grammar_char(mpc_val_t *x, void *s) {mpcaf_grammar_char3427,92440
+static mpc_val_t *mpcaf_fold_regex(int n, mpc_val_t **xs) {mpcaf_fold_regex3435,92759
+static int is_number(const char* s) {is_number3454,93347
+static mpc_parser_t *mpca_grammar_find_parser(char *x, mpca_grammar_st_t *st) {mpca_grammar_find_parser3460,93503
+static mpc_val_t *mpcaf_grammar_id(mpc_val_t *x, void *s) {mpcaf_grammar_id3509,94863
+mpc_parser_t *mpca_grammar_st(const char *grammar, mpca_grammar_st_t *st) {mpca_grammar_st3522,95163
+mpc_parser_t *mpca_grammar(int flags, const char *grammar, ...) {mpca_grammar3589,97152
+typedef struct {__anon224143851b083606,97489
+  char *ident;ident3607,97507
+  char *name;name3608,97523
+  mpc_parser_t *grammar;grammar3609,97538
+} mpca_stmt_t;mpca_stmt_t3610,97564
+static mpc_val_t *mpca_stmt_afold(int n, mpc_val_t **xs) {mpca_stmt_afold3612,97582
+static mpc_val_t *mpca_stmt_fold(int n, mpc_val_t **xs) {mpca_stmt_fold3624,97893
+static void mpca_stmt_list_delete(mpc_val_t *x) {mpca_stmt_list_delete3637,98130
+static mpc_val_t *mpca_stmt_list_apply_to(mpc_val_t *x, void *s) {mpca_stmt_list_apply_to3653,98404
+static mpc_err_t *mpca_lang_st(mpc_input_t *i, mpca_grammar_st_t *st) {mpca_lang_st3678,99039
+mpc_err_t *mpca_lang_file(int flags, FILE *f, ...) {mpca_lang_file3747,101043
+mpc_err_t *mpca_lang_pipe(int flags, FILE *p, ...) {mpca_lang_pipe3769,101446
+mpc_err_t *mpca_lang(int flags, const char *language, ...) {mpca_lang3791,101849
+mpc_err_t *mpca_lang_contents(int flags, const char *filename, ...) {mpca_lang_contents3814,102273
+static int mpc_nodecount_unretained(mpc_parser_t* p, int force) {mpc_nodecount_unretained3848,102853
+void mpc_stats(mpc_parser_t* p) {mpc_stats3890,104465
+static void mpc_optimise_unretained(mpc_parser_t *p, int force) {mpc_optimise_unretained3896,104612
+void mpc_optimise(mpc_parser_t *p) {mpc_optimise4065,111662
+
+mpc/Makefile,1150
+PROJ = mpcPROJ1,0
+CC ?= gccCC2,12
+STND = -ansiSTND3,23
+DIST = buildDIST4,37
+MKDIR  ?= mkdir -pMKDIR5,51
+PREFIX ?= /usr/localPREFIX6,71
+CFLAGS ?= $(STND) -pedantic -O3 -g -Wall -Werror -Wextra -Wformat=2 -Wshadow \CFLAGS7,93
+TESTS = $(wildcard tests/*.c)TESTS12,397
+EXAMPLES = $(wildcard examples/*.c)EXAMPLES13,428
+EXAMPLESEXE = $(EXAMPLES:.c=)EXAMPLESEXE14,465
+all: $(EXAMPLESEXE) checkall18,530
+$(DIST):$(DIST)20,559
+check: $(DIST)/test-file $(DIST)/test-static $(DIST)/test-dynamiccheck23,599
+$(DIST)/test-file: $(TESTS) $(PROJ).c mpc.h tests/ptest.h$(DIST)/test-file28,763
+$(DIST)/test-dynamic: $(TESTS) $(DIST)/lib$(PROJ).so mpc.h tests/ptest.h$(DIST)/test-dynamic31,909
+$(DIST)/test-static: $(TESTS) $(DIST)/lib$(PROJ).a mpc.h tests/ptest.h$(DIST)/test-static34,1083
+examples/%: $(DIST) examples/%.c $(PROJ).c mpc.hexamples/%37,1262
+$(DIST)/lib$(PROJ).so: $(PROJ).c mpc.h$(DIST)/lib$(PROJ).so40,1376
+$(DIST)/lib$(PROJ).a: $(PROJ).c mpc.h$(DIST)/lib$(PROJ).a47,1585
+libs: $(DIST)/lib$(PROJ).so $(DIST)/lib$(PROJ).alibs51,1729
+clean:clean53,1783
+install: allinstall56,1813
+uninstall:uninstall62,2083
+
+mpc/LICENSE.md,0

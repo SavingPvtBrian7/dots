@@ -1,0 +1,177 @@
+(defun my-last (list)
+  (if (null (cdr list))
+      (car list)
+      (my-last (cdr list))))
+
+(defun my-but-last (list)
+  (if (null (cdr(cdr list)))
+      list
+      (my-but-last (cdr list))))
+
+(defun element-at (list index)
+  (if (= index 1)
+      (car list)
+      (element-at (cdr list) (- index 1))))
+
+(defun my-length (list)
+  (defun iter (list n)
+    (if (null list)
+	n
+	(iter (cdr list) (+ n 1))))
+  (iter list 0))
+
+(defun my-reverse (list)
+  (defun iter (list acc)
+    (if (null list)
+	acc
+	(iter (cdr list) (cons (car list) acc))))
+  (iter list '()))
+
+(defun palindrome? (list)
+  (cond ((null (cdr list)) t)
+	((eql (car list) (car (last list)))
+	 (palindrome? (cdr (butlast list))))
+	(t nil)))
+
+(defun flatten (tree)
+  (cond ((null tree) '())
+	((atom tree) (list tree))
+	(t
+	 (loop for a in tree append (flatten a)))))
+
+(defun my-flatten (tree)
+  (let ((result '()))
+    (labels ((rflatten (tree)
+	       (dolist (el tree)
+		 (if (listp el)
+		     (rflatten el)
+		     (push el result)))))
+      (rflatten tree)
+      (nreverse result))))
+	   
+(defun compress (list)
+  (labels ((iter (list acc)
+	     (cond ((null list) acc)
+		   ((eql (car list) (car acc))
+		    (iter (cdr list) acc))
+		   (t
+		    (iter (cdr list) (push (car list) acc))))))
+    (nreverse (iter list '()))))
+
+(defun pack (list)
+  (labels ((update-pack-list (pack) (cons (car pack) pack))
+	   (new-pack-list (sym) (list sym))
+	   (iter (list acc)
+	     (cond ((null list) acc)
+		   ((eql (car list) (caar acc))
+		    (iter (rest list)
+			  (cons (update-pack-list (car acc)) (rest acc))))
+		   (t
+		    (iter (rest list)
+			  (cons (new-pack-list (car list)) acc))))))
+    (nreverse (iter list '()))))
+
+(defun encode (list)
+  (mapcar (lambda (pack) (list (length pack) (car pack))) (pack list)))
+
+(defun encode-direct (list)
+ (labels ((update-encode-pair (pair) (list (1+ (car pair)) (cadr pair)))
+	  (new-encode-pair (sym) (list 1 sym))
+	  (iter (list acc)
+	     (cond ((null list) acc)
+		   ((eql (car list) (cadar acc))
+		    (iter (cdr list)
+			  (cons (update-encode-pair (car acc)) (cdr acc))))
+		   (t
+		    (iter (cdr list)
+			  (cons (new-encode-pair (car list)) acc))))))
+    (nreverse (iter list '()))))
+
+(defun simplify-pair (pair)
+  (if (= (car pair) 1)
+      (cadr pair)
+      pair))
+
+(defun encode-simplify (list)
+  (mapcar 'simplify-pair (encode-direct list)))
+
+(defun dupli (list)
+  (labels ((iter (list acc)
+	     (if (null list)
+		 acc
+		 (iter (cdr list)
+		       (cons (car list) (cons (car list) acc))))))
+    (nreverse (iter list '()))))
+
+(defun repli (list n)
+  (labels ((iter (list acc i)
+	     (cond ((null list) acc)
+		   ((<= i 1)
+		    (iter (cdr list) (cons (car list) acc) n))
+		   (t
+		    (iter list (cons (car list) acc) (1- i))))))
+    (nreverse (iter list '() n))))
+
+(defun drop (list n)
+  (labels ((iter (list i acc)
+	     (cond ((null list) acc)
+		   ((<= i 1)
+		    (iter (cdr list) n acc))
+		   (t 
+		    (iter (cdr list) (1- i) (cons (car list) acc))))))
+    (nreverse (iter list n '()))))
+
+(defun split (list n)
+  (labels ((iter (list i acc)
+	     (cond ((null list) acc)
+		   ((<= i 0) (cons list (list (nreverse acc))))
+		   (t
+		    (iter (cdr list) (1- i) (cons (car list) acc))))))
+    (nreverse (iter list n '()))))
+
+(defun slice (list i k)
+  (labels ((iter (list i k acc)
+	     (cond ((or (<= k 0) (null list)) acc)
+		   ((<= i 0) (iter (cdr list) i (1- k) (cons (car list) acc)))
+		   (t (iter (cdr list) (1- i) (1- k) acc)))))
+    (nreverse (iter list i k '()))))
+
+(defun rotate (list n)
+  (let ((split-list (if (>= n 0)
+			(split list n)
+			(split list (- (length list) (abs n))))))
+    (append (cadr split-list) (car split-list)))) 
+
+(defun remove-at (list n)
+  (labels ((iter (list n acc)
+	     (cond ((null list) acc)
+		   ((= n 0) (append (nreverse (cdr list)) acc))
+		   (t
+		    (iter (cdr list) (1- n) (cons (car list) acc))))))
+    (nreverse (iter list (mod n (length list)) '()))))
+
+(defun insert-at (x list n)
+  (labels ((iter (list n acc)
+	     (cond ((null list) acc)
+		   ((= n 0) (append (nreverse list) (cons x acc)))
+		   (t
+		    (iter (cdr list) (1- n) (cons (car list) acc))))))
+    (nreverse (iter list (mod n (length list)) '()))))
+
+(defun range (a b)
+  (labels ((iter (n acc)
+	     (if (> n b)
+		 acc
+		 (iter (1+ n) (cons n acc)))))
+    (nreverse (iter a '()))))
+
+(defun rand-select (list n)
+    (labels ((iter (list n acc)
+	     (let ((rand (random (length list))))
+	       (if (or (= n 0) (null list))
+		   acc
+		   (iter (remove-at list rand)
+			 (1- n)
+			 (cons (nth rand list) acc))))))
+      (nreverse (iter list n '()))))
+		   
